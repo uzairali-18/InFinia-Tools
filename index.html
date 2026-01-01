@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InFinia Tools - Free Online PDF, Image, Video & AI Tools | No Registration Required</title>
+    <meta name="description" content="Free online tools for PDF editing, image conversion, video editing, AI writing, and more. No registration needed. Fast, secure, and easy to use.">
+    <meta name="keywords" content="free pdf tools, image converter, video editor online, ai tools, online converter, pdf to word, compress pdf, merge pdf">
+    <link rel="canonical" href="https://infiniatools.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 20px;
+        }
+
+        .category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .category-icon {
+            font-size: 1.5rem;
+        }
+
+        .category h2 {
+            font-size: 1.8rem;
+            color: #667eea;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .tool-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .stats {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .features {
+            background: white;
+            padding: 3rem 20px;
+            margin: 3rem 0;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 20px 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #cbd5e0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #cbd5e0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">⚡ InFinia Tools</a>
+            <ul class="nav-links">
+                <li><a href="#pdf">PDF Tools</a></li>
+                <li><a href="#image">Image Tools</a></li>
+                <li><a href="#video">Video Tools</a></li>
+                <li><a href="#ai">AI Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Free Online Tools for Everything</h1>
+        <p>Convert, edit, compress, and transform your files instantly. No registration required, completely free forever.</p>
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Search for a tool..." id="searchInput">
+            <span class="search-icon">🔍</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="stats">
+            <h2>Trusted by Millions Worldwide</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Free Tools</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10M+</h3>
+                    <p>Files Processed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Free Forever</p>
+                </div>
+                <div class="stat-item">
+                    <h3>0</h3>
+                    <p>Registration Required</p>
+                </div>
+            </div>
+        </div>
+
+        <section id="pdf" class="category">
+            <div class="category-header">
+                <span class="category-icon">📄</span>
+                <h2>PDF Tools</h2>
+            </div>
+            <div class="tools-grid" id="pdfTools"></div>
+        </section>
+
+        <section id="image" class="category">
+            <div class="category-header">
+                <span class="category-icon">🖼️</span>
+                <h2>Image Tools</h2>
+            </div>
+            <div class="tools-grid" id="imageTools"></div>
+        </section>
+
+        <section id="video" class="category">
+            <div class="category-header">
+                <span class="category-icon">🎬</span>
+                <h2>Video Tools</h2>
+            </div>
+            <div class="tools-grid" id="videoTools"></div>
+        </section>
+
+        <section id="ai" class="category">
+            <div class="category-header">
+                <span class="category-icon">🤖</span>
+                <h2>AI Tools</h2>
+            </div>
+            <div class="tools-grid" id="aiTools"></div>
+        </section>
+
+        <section id="file" class="category">
+            <div class="category-header">
+                <span class="category-icon">📁</span>
+                <h2>File Conversion Tools</h2>
+            </div>
+            <div class="tools-grid" id="fileTools"></div>
+        </section>
+
+        <section id="text" class="category">
+            <div class="category-header">
+                <span class="category-icon">📝</span>
+                <h2>Text & Writing Tools</h2>
+            </div>
+            <div class="tools-grid" id="textTools"></div>
+        </section>
+    </div>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Secure</h3>
+                <p>Your files are processed securely and deleted automatically after processing</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Process your files in seconds with our optimized servers</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🆓</div>
+                <h3>Completely Free</h3>
+                <p>No hidden fees, no subscriptions, no registration required</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Works Everywhere</h3>
+                <p>Use on any device - desktop, tablet, or mobile</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>InFinia Tools</h3>
+                <p>Your one-stop solution for all online tools. Free, fast, and secure.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Popular Tools</h3>
+                <ul>
+                    <li><a href="#">PDF to Word</a></li>
+                    <li><a href="#">Compress PDF</a></li>
+                    <li><a href="#">Image Converter</a></li>
+                    <li><a href="#">Video Compressor</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">How-to Guides</a></li>
+                    <li><a href="#">API Documentation</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 InFinia Tools. All rights reserved. Made with ❤️ for everyone.</p>
+        </div>
+    </footer>
+
+    <script>
+        const tools = {
+            pdf: [
+                { icon: '📄', name: 'PDF to Word', desc: 'Convert PDF to editable Word documents' },
+                { icon: '📄', name: 'PDF to Excel', desc: 'Extract tables from PDF to Excel' },
+                { icon: '📄', name: 'PDF to PPT', desc: 'Convert PDF to PowerPoint presentations' },
+                { icon: '📄', name: 'PDF to JPG', desc: 'Convert PDF pages to images' },
+                { icon: '🗜️', name: 'Compress PDF', desc: 'Reduce PDF file size without losing quality' },
+                { icon: '🔗', name: 'Merge PDF', desc: 'Combine multiple PDFs into one' },
+                { icon: '✂️', name: 'Split PDF', desc: 'Extract pages from your PDF' },
+                { icon: '🔓', name: 'Unlock PDF', desc: 'Remove password from PDF files' },
+                { icon: '🔒', name: 'Protect PDF', desc: 'Add password protection to PDF' },
+                { icon: '🔄', name: 'Rotate PDF', desc: 'Rotate pages in your PDF document' },
+                { icon: '📝', name: 'Edit PDF', desc: 'Add text, images, and shapes to PDF' },
+                { icon: '✍️', name: 'Sign PDF', desc: 'Add electronic signature to PDF' },
+                { icon: '📄', name: 'Word to PDF', desc: 'Convert Word documents to PDF' },
+                { icon: '📄', name: 'Excel to PDF', desc: 'Convert Excel spreadsheets to PDF' },
+                { icon: '📄', name: 'PPT to PDF', desc: 'Convert PowerPoint to PDF format' },
+                { icon: '🔢', name: 'Add Page Numbers', desc: 'Number pages in your PDF' }
+            ],
+            image: [
+                { icon: '🖼️', name: 'Image Converter', desc: 'Convert between all image formats' },
+                { icon: '🗜️', name: 'Compress Image', desc: 'Reduce image file size' },
+                { icon: '📏', name: 'Resize Image', desc: 'Change image dimensions' },
+                { icon: '✂️', name: 'Crop Image', desc: 'Cut and crop your images' },
+                { icon: '🔄', name: 'Rotate Image', desc: 'Rotate images by any angle' },
+                { icon: '🎨', name: 'Remove Background', desc: 'AI-powered background removal' },
+                { icon: '🌟', name: 'Upscale Image', desc: 'Enhance image quality with AI' },
+                { icon: '📸', name: 'JPG to PNG', desc: 'Convert JPG images to PNG' },
+                { icon: '📸', name: 'PNG to JPG', desc: 'Convert PNG images to JPG' },
+                { icon: '🖼️', name: 'WebP Converter', desc: 'Convert to/from WebP format' },
+                { icon: '🎯', name: 'Image to PDF', desc: 'Convert images to PDF document' },
+                { icon: '✨', name: 'Image Enhancer', desc: 'Improve image quality automatically' },
+                { icon: '🖌️', name: 'Add Watermark', desc: 'Protect your images with watermarks' },
+                { icon: '🎨', name: 'Apply Filters', desc: 'Add artistic filters to images' },
+                { icon: '📐', name: 'Straighten Image', desc: 'Fix tilted photos automatically' },
+                { icon: '🔲', name: 'Border Image', desc: 'Add borders and frames to images' }
+            ],
+            video: [
+                { icon: '🎬', name: 'Video Converter', desc: 'Convert between video formats' },
+                { icon: '🗜️', name: 'Compress Video', desc: 'Reduce video file size' },
+                { icon: '✂️', name: 'Trim Video', desc: 'Cut and trim video clips' },
+                { icon: '🔄', name: 'Rotate Video', desc: 'Rotate videos by 90/180/270 degrees' },
+                { icon: '🎵', name: 'Video to MP3', desc: 'Extract audio from video files' },
+                { icon: '📺', name: 'Video to GIF', desc: 'Convert video clips to animated GIFs' },
+                { icon: '🔇', name: 'Remove Audio', desc: 'Delete audio track from video' },
+                { icon: '📏', name: 'Resize Video', desc: 'Change video resolution' },
+                { icon: '⏱️', name: 'Change Speed', desc: 'Speed up or slow down videos' },
+                { icon: '🖼️', name: 'Video to JPG', desc: 'Extract frames as images' },
+                { icon: '🎞️', name: 'Loop Video', desc: 'Create looping video clips' },
+                { icon: '🔄', name: 'Reverse Video', desc: 'Play video in reverse' },
+                { icon: '📝', name: 'Add Subtitles', desc: 'Insert subtitles to videos' },
+                { icon: '🎨', name: 'Video Filters', desc: 'Apply effects and filters' },
+                { icon: '🖌️', name: 'Add Watermark', desc: 'Protect videos with watermarks' },
+                { icon: '📹', name: 'Screen Recorder', desc: 'Record your screen online' }
+            ],
+            ai: [
+                { icon: '✍️', name: 'AI Writer', desc: 'Generate content with AI' },
+                { icon: '📝', name: 'AI Summarizer', desc: 'Summarize long texts instantly' },
+                { icon: '🔤', name: 'AI Paraphraser', desc: 'Rewrite text in different ways' },
+                { icon: '✅', name: 'Grammar Checker', desc: 'Fix grammar and spelling errors' },
+                { icon: '🌐', name: 'AI Translator', desc: 'Translate text between languages' },
+                { icon: '📊', name: 'AI Content Generator', desc: 'Create blog posts and articles' },
+                { icon: '💡', name: 'AI Idea Generator', desc: 'Get creative ideas for any topic' },
+                { icon: '📧', name: 'Email Writer', desc: 'Compose professional emails' },
+                { icon: '🎓', name: 'Essay Writer', desc: 'Generate structured essays' },
+                { icon: '📱', name: 'Social Media Posts', desc: 'Create engaging social content' },
+                { icon: '🎤', name: 'Speech to Text', desc: 'Transcribe audio to text with AI' },
+                { icon: '🔊', name: 'Text to Speech', desc: 'Convert text to natural speech' },
+                { icon: '🖼️', name: 'AI Image Generator', desc: 'Create images from text prompts' },
+                { icon: '🎨', name: 'Logo Maker', desc: 'Design logos with AI assistance' },
+                { icon: '📖', name: 'Story Generator', desc: 'Generate creative stories' },
+                { icon: '🎯', name: 'SEO Optimizer', desc: 'Optimize content for search engines' }
+            ],
+            file: [
+                { icon: '📁', name: 'Archive Extractor', desc: 'Extract ZIP, RAR, 7Z files' },
+                { icon: '🗜️', name: 'File Compressor', desc: 'Compress files to ZIP/RAR' },
+                { icon: '🔄', name: 'Office Converter', desc: 'Convert between Office formats' },
+                { icon: '📊', name: 'CSV to Excel', desc: 'Convert CSV files to Excel' },
+                { icon: '📈', name: 'Excel to CSV', desc: 'Export Excel data to CSV' },
+                { icon: '📄', name: 'XML Converter', desc: 'Convert XML to other formats' },
+                { icon: '🔤', name: 'JSON Formatter', desc: 'Format and validate JSON' },
+                { icon: '📑', name: 'Markdown to HTML', desc: 'Convert Markdown to HTML' },
+                { icon: '📋', name: 'HTML to Markdown', desc: 'Convert HTML to Markdown' },
+                { icon: '🎵', name: 'Audio Converter', desc: 'Convert between audio formats' },
+                { icon: '📚', name: 'EPUB Converter', desc: 'Convert ebooks to/from EPUB' },
+                { icon: '📖', name: 'MOBI Converter', desc: 'Convert Kindle ebook formats' }
+            ],
+            text: [
+                { icon: '📝', name: 'Word Counter', desc: 'Count words, characters, paragraphs' },
+                { icon: '🔤', name: 'Case Converter', desc: 'Change text case and formatting' },
+                { icon: '📋', name: 'Text Compare', desc: 'Find differences between texts' },
+                { icon: '🔍', name: 'Find and Replace', desc: 'Search and replace text' },
+                { icon: '✂️', name: 'Text Splitter', desc: 'Split text by delimiter' },
+                { icon: '🔗', name: 'Text Combiner', desc: 'Merge multiple texts' },
+                { icon: '🎲', name: 'Lorem Ipsum', desc: 'Generate placeholder text' },
+                { icon: '🔐', name: 'Text Encoder', desc: 'Encode/decode Base64, URL' },
+                { icon: '🔑', name: 'Hash Generator', desc: 'Generate MD5, SHA hashes' },
+                { icon: '📏', name: 'Text Formatter', desc: 'Format and beautify text' },
+                { icon: '🗑️', name: 'Remove Duplicates', desc: 'Delete duplicate lines' },
+                { icon: '↔️', name: 'Sort Lines', desc: 'Sort text lines alphabetically' }
+            ]
+        };
+
+        function renderTools() {
+            Object.keys(tools).forEach(category => {
+                const container = document.getElementById(`${category}Tools`);
+                if (container) {
+                    container.innerHTML = tools[category].map(tool => `
+                        <div class="tool-card">
+                            <div class="tool-icon">${tool.icon}</div>
+                            <h3>${tool.name}</h3>
+                            <p>${tool.desc}</p>
+                        </div>
+                    `).join('');
+                }
+            });
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const allCards = document.querySelectorAll('.tool-card');
+            
+            allCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(query) || desc.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        renderTools();
+    </script>
+</body>
+</html>
