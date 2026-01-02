@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InFinia Tools - Free Online PDF, Image, Video & AI Tools | No Registration Required</title>
-    <meta name="description" content="Free online tools for PDF editing, image conversion, video editing, AI writing, and more. No registration needed. Fast, secure, and easy to use.">
-    <meta name="keywords" content="free pdf tools, image converter, video editor online, ai tools, online converter, pdf to word, compress pdf, merge pdf">
+    <title>InFinia Tools - Free Online PDF, Image, Video & File Converter | No Registration</title>
+    <meta name="description" content="Free online tools for PDF conversion, image editing, video compression, and file conversion. Convert PDF to Word, compress images, edit videos - all free, no signup required.">
+    <meta name="keywords" content="free pdf converter, pdf to word, compress pdf, merge pdf, image converter, jpg to png, video compressor, file converter online, free online tools">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://infiniatools.com">
     <style>
         * {
@@ -57,6 +58,7 @@
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
+            font-weight: 500;
         }
 
         .nav-links a:hover {
@@ -73,6 +75,7 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .hero p {
@@ -131,6 +134,7 @@
         .category h2 {
             font-size: 1.8rem;
             color: #667eea;
+            font-weight: 700;
         }
 
         .tools-grid {
@@ -144,33 +148,171 @@
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            border: 2px solid transparent;
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            border-color: #667eea;
         }
 
         .tool-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
         }
 
         .tool-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             margin-bottom: 0.5rem;
             color: #333;
+            font-weight: 600;
         }
 
         .tool-card p {
             font-size: 0.9rem;
             color: #666;
-            line-height: 1.4;
+            line-height: 1.5;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 16px;
+            padding: 2rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideDown 0.3s;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .modal-header h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            background: #f7fafc;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+        }
+
+        .upload-area:hover {
+            background: #edf2f7;
+            border-color: #764ba2;
+        }
+
+        .upload-area.dragover {
+            background: #e6f3ff;
+            border-color: #4299e1;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .file-info {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.3s;
         }
 
         .stats {
@@ -182,17 +324,22 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
+        .stats h2 {
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-top: 1rem;
         }
 
         .stat-item h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #667eea;
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .features {
@@ -236,6 +383,7 @@
 
         .footer-section h3 {
             margin-bottom: 1rem;
+            font-weight: 600;
         }
 
         .footer-section ul {
@@ -261,6 +409,38 @@
             color: #cbd5e0;
         }
 
+        .tool-options {
+            margin: 1rem 0;
+        }
+
+        .tool-options label {
+            display: block;
+            margin: 0.5rem 0;
+            font-weight: 500;
+        }
+
+        .tool-options input,
+        .tool-options select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            margin-top: 0.25rem;
+        }
+
+        canvas {
+            max-width: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        #preview {
+            max-width: 100%;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -273,6 +453,11 @@
             .tools-grid {
                 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
+
+            .modal-content {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -284,31 +469,27 @@
                 <li><a href="#pdf">PDF Tools</a></li>
                 <li><a href="#image">Image Tools</a></li>
                 <li><a href="#video">Video Tools</a></li>
-                <li><a href="#ai">AI Tools</a></li>
+                <li><a href="#file">File Tools</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Free Online Tools for Everything</h1>
-        <p>Convert, edit, compress, and transform your files instantly. No registration required, completely free forever.</p>
+        <h1>Free Online Tools for PDF, Images, Videos & Files</h1>
+        <p>Convert, compress, merge, and edit your files instantly. 100% free, secure, and no registration required.</p>
         <div class="search-container">
-            <input type="text" class="search-box" placeholder="Search for a tool..." id="searchInput">
+            <input type="text" class="search-box" placeholder="Search for a tool..." id="searchInput" aria-label="Search tools">
             <span class="search-icon">🔍</span>
         </div>
     </section>
 
     <div class="container">
         <div class="stats">
-            <h2>Trusted by Millions Worldwide</h2>
+            <h2>Trusted Worldwide for Fast & Secure File Processing</h2>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>150+</h3>
-                    <p>Free Tools</p>
-                </div>
-                <div class="stat-item">
-                    <h3>10M+</h3>
-                    <p>Files Processed</p>
+                    <h3>90+</h3>
+                    <p>Free Tools Available</p>
                 </div>
                 <div class="stat-item">
                     <h3>100%</h3>
@@ -318,13 +499,17 @@
                     <h3>0</h3>
                     <p>Registration Required</p>
                 </div>
+                <div class="stat-item">
+                    <h3>⚡</h3>
+                    <p>Instant Processing</p>
+                </div>
             </div>
         </div>
 
         <section id="pdf" class="category">
             <div class="category-header">
                 <span class="category-icon">📄</span>
-                <h2>PDF Tools</h2>
+                <h2>PDF Tools - Convert, Merge, Compress & Edit PDFs</h2>
             </div>
             <div class="tools-grid" id="pdfTools"></div>
         </section>
@@ -332,7 +517,7 @@
         <section id="image" class="category">
             <div class="category-header">
                 <span class="category-icon">🖼️</span>
-                <h2>Image Tools</h2>
+                <h2>Image Tools - Convert, Resize, Compress Images</h2>
             </div>
             <div class="tools-grid" id="imageTools"></div>
         </section>
@@ -340,23 +525,15 @@
         <section id="video" class="category">
             <div class="category-header">
                 <span class="category-icon">🎬</span>
-                <h2>Video Tools</h2>
+                <h2>Video Tools - Convert, Compress, Trim Videos</h2>
             </div>
             <div class="tools-grid" id="videoTools"></div>
-        </section>
-
-        <section id="ai" class="category">
-            <div class="category-header">
-                <span class="category-icon">🤖</span>
-                <h2>AI Tools</h2>
-            </div>
-            <div class="tools-grid" id="aiTools"></div>
         </section>
 
         <section id="file" class="category">
             <div class="category-header">
                 <span class="category-icon">📁</span>
-                <h2>File Conversion Tools</h2>
+                <h2>File Tools - Convert & Process Documents</h2>
             </div>
             <div class="tools-grid" id="fileTools"></div>
         </section>
@@ -364,7 +541,7 @@
         <section id="text" class="category">
             <div class="category-header">
                 <span class="category-icon">📝</span>
-                <h2>Text & Writing Tools</h2>
+                <h2>Text Tools - Format, Count, Convert Text</h2>
             </div>
             <div class="tools-grid" id="textTools"></div>
         </section>
@@ -374,23 +551,23 @@
         <div class="features-grid">
             <div class="feature-item">
                 <div class="feature-icon">🔒</div>
-                <h3>100% Secure</h3>
-                <p>Your files are processed securely and deleted automatically after processing</p>
+                <h3>100% Secure & Private</h3>
+                <p>All files are processed in your browser. Nothing uploaded to servers.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Process your files in seconds with our optimized servers</p>
+                <h3>Lightning Fast Processing</h3>
+                <p>Client-side processing means instant results without server delays.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">🆓</div>
                 <h3>Completely Free</h3>
-                <p>No hidden fees, no subscriptions, no registration required</p>
+                <p>No hidden fees, no subscriptions, unlimited usage forever.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">📱</div>
-                <h3>Works Everywhere</h3>
-                <p>Use on any device - desktop, tablet, or mobile</p>
+                <h3>Works on All Devices</h3>
+                <p>Desktop, tablet, or mobile - works perfectly everywhere.</p>
             </div>
         </div>
     </section>
@@ -399,142 +576,112 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>InFinia Tools</h3>
-                <p>Your one-stop solution for all online tools. Free, fast, and secure.</p>
+                <p>Your complete solution for free online tools. Fast, secure, and easy to use.</p>
             </div>
             <div class="footer-section">
-                <h3>Popular Tools</h3>
+                <h3>Popular PDF Tools</h3>
                 <ul>
-                    <li><a href="#">PDF to Word</a></li>
-                    <li><a href="#">Compress PDF</a></li>
-                    <li><a href="#">Image Converter</a></li>
-                    <li><a href="#">Video Compressor</a></li>
+                    <li><a href="#" data-tool="mergePDF">Merge PDF Files</a></li>
+                    <li><a href="#" data-tool="compressPDF">Compress PDF</a></li>
+                    <li><a href="#" data-tool="splitPDF">Split PDF Pages</a></li>
+                    <li><a href="#" data-tool="rotatePDF">Rotate PDF</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Popular Image Tools</h3>
+                <ul>
+                    <li><a href="#" data-tool="compressImage">Compress Images</a></li>
+                    <li><a href="#" data-tool="resizeImage">Resize Images</a></li>
+                    <li><a href="#" data-tool="jpgToPng">JPG to PNG</a></li>
+                    <li><a href="#" data-tool="cropImage">Crop Images</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Resources</h3>
                 <ul>
-                    <li><a href="#">Blog</a></li>
                     <li><a href="#">How-to Guides</a></li>
-                    <li><a href="#">API Documentation</a></li>
                     <li><a href="#">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2026 InFinia Tools. All rights reserved. Made with ❤️ for everyone.</p>
+            <p>&copy; 2026 InFinia Tools. All rights reserved. Made with ❤️ for productivity.</p>
         </div>
     </footer>
 
+    <div id="toolModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Tool</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
+        const { PDFDocument, rgb, degrees } = PDFLib;
+
         const tools = {
             pdf: [
-                { icon: '📄', name: 'PDF to Word', desc: 'Convert PDF to editable Word documents' },
-                { icon: '📄', name: 'PDF to Excel', desc: 'Extract tables from PDF to Excel' },
-                { icon: '📄', name: 'PDF to PPT', desc: 'Convert PDF to PowerPoint presentations' },
-                { icon: '📄', name: 'PDF to JPG', desc: 'Convert PDF pages to images' },
-                { icon: '🗜️', name: 'Compress PDF', desc: 'Reduce PDF file size without losing quality' },
-                { icon: '🔗', name: 'Merge PDF', desc: 'Combine multiple PDFs into one' },
-                { icon: '✂️', name: 'Split PDF', desc: 'Extract pages from your PDF' },
-                { icon: '🔓', name: 'Unlock PDF', desc: 'Remove password from PDF files' },
-                { icon: '🔒', name: 'Protect PDF', desc: 'Add password protection to PDF' },
-                { icon: '🔄', name: 'Rotate PDF', desc: 'Rotate pages in your PDF document' },
-                { icon: '📝', name: 'Edit PDF', desc: 'Add text, images, and shapes to PDF' },
-                { icon: '✍️', name: 'Sign PDF', desc: 'Add electronic signature to PDF' },
-                { icon: '📄', name: 'Word to PDF', desc: 'Convert Word documents to PDF' },
-                { icon: '📄', name: 'Excel to PDF', desc: 'Convert Excel spreadsheets to PDF' },
-                { icon: '📄', name: 'PPT to PDF', desc: 'Convert PowerPoint to PDF format' },
-                { icon: '🔢', name: 'Add Page Numbers', desc: 'Number pages in your PDF' }
+                { id: 'mergePDF', icon: '🔗', name: 'Merge PDF', desc: 'Combine multiple PDF files into one document', keywords: 'merge pdf, combine pdf, join pdf files' },
+                { id: 'splitPDF', icon: '✂️', name: 'Split PDF', desc: 'Extract pages or split PDF into separate files', keywords: 'split pdf, extract pages, separate pdf' },
+                { id: 'compressPDF', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce PDF file size without quality loss', keywords: 'compress pdf, reduce pdf size, optimize pdf' },
+                { id: 'rotatePDF', icon: '🔄', name: 'Rotate PDF', desc: 'Rotate PDF pages by 90, 180, or 270 degrees', keywords: 'rotate pdf, flip pdf pages' },
+                { id: 'pdfToImages', icon: '📸', name: 'PDF to Images', desc: 'Convert PDF pages to JPG or PNG images', keywords: 'pdf to jpg, pdf to png, pdf to images' },
+                { id: 'imagesToPDF', icon: '📄', name: 'Images to PDF', desc: 'Convert multiple images into a single PDF', keywords: 'images to pdf, jpg to pdf, png to pdf' },
+                { id: 'addPageNumbers', icon: '🔢', name: 'Add Page Numbers', desc: 'Number your PDF pages automatically', keywords: 'add page numbers, number pdf pages' },
+                { id: 'deletePDFPages', icon: '🗑️', name: 'Delete PDF Pages', desc: 'Remove unwanted pages from PDF', keywords: 'delete pdf pages, remove pages' },
+                { id: 'reorderPDF', icon: '↕️', name: 'Reorder PDF Pages', desc: 'Rearrange pages in your PDF document', keywords: 'reorder pdf, rearrange pages' },
+                { id: 'pdfMetadata', icon: 'ℹ️', name: 'PDF Info', desc: 'View and edit PDF metadata and properties', keywords: 'pdf metadata, pdf info, pdf properties' }
             ],
             image: [
-                { icon: '🖼️', name: 'Image Converter', desc: 'Convert between all image formats' },
-                { icon: '🗜️', name: 'Compress Image', desc: 'Reduce image file size' },
-                { icon: '📏', name: 'Resize Image', desc: 'Change image dimensions' },
-                { icon: '✂️', name: 'Crop Image', desc: 'Cut and crop your images' },
-                { icon: '🔄', name: 'Rotate Image', desc: 'Rotate images by any angle' },
-                { icon: '🎨', name: 'Remove Background', desc: 'AI-powered background removal' },
-                { icon: '🌟', name: 'Upscale Image', desc: 'Enhance image quality with AI' },
-                { icon: '📸', name: 'JPG to PNG', desc: 'Convert JPG images to PNG' },
-                { icon: '📸', name: 'PNG to JPG', desc: 'Convert PNG images to JPG' },
-                { icon: '🖼️', name: 'WebP Converter', desc: 'Convert to/from WebP format' },
-                { icon: '🎯', name: 'Image to PDF', desc: 'Convert images to PDF document' },
-                { icon: '✨', name: 'Image Enhancer', desc: 'Improve image quality automatically' },
-                { icon: '🖌️', name: 'Add Watermark', desc: 'Protect your images with watermarks' },
-                { icon: '🎨', name: 'Apply Filters', desc: 'Add artistic filters to images' },
-                { icon: '📐', name: 'Straighten Image', desc: 'Fix tilted photos automatically' },
-                { icon: '🔲', name: 'Border Image', desc: 'Add borders and frames to images' }
+                { id: 'compressImage', icon: '🗜️', name: 'Compress Image', desc: 'Reduce image file size with quality control', keywords: 'compress image, reduce image size, optimize image' },
+                { id: 'resizeImage', icon: '📏', name: 'Resize Image', desc: 'Change image dimensions and resolution', keywords: 'resize image, scale image, change size' },
+                { id: 'cropImage', icon: '✂️', name: 'Crop Image', desc: 'Cut and crop images to desired size', keywords: 'crop image, cut image, trim image' },
+                { id: 'rotateImage', icon: '🔄', name: 'Rotate Image', desc: 'Rotate images by any angle', keywords: 'rotate image, flip image, turn image' },
+                { id: 'jpgToPng', icon: '📸', name: 'JPG to PNG', desc: 'Convert JPG/JPEG images to PNG format', keywords: 'jpg to png, jpeg to png converter' },
+                { id: 'pngToJpg', icon: '📸', name: 'PNG to JPG', desc: 'Convert PNG images to JPG/JPEG format', keywords: 'png to jpg, png to jpeg converter' },
+                { id: 'imageToWebP', icon: '🖼️', name: 'Convert to WebP', desc: 'Convert images to modern WebP format', keywords: 'webp converter, image to webp' },
+                { id: 'flipImage', icon: '↔️', name: 'Flip Image', desc: 'Flip images horizontally or vertically', keywords: 'flip image, mirror image' },
+                { id: 'grayscaleImage', icon: '⚫', name: 'Grayscale Image', desc: 'Convert images to black and white', keywords: 'grayscale, black and white, desaturate' },
+                { id: 'invertImage', icon: '🔲', name: 'Invert Image', desc: 'Invert colors in your images', keywords: 'invert colors, negative image' },
+                { id: 'brightnessContrast', icon: '☀️', name: 'Adjust Brightness', desc: 'Change image brightness and contrast', keywords: 'brightness, contrast, adjust image' },
+                { id: 'imageBlur', icon: '💫', name: 'Blur Image', desc: 'Apply blur effect to images', keywords: 'blur image, gaussian blur' }
             ],
             video: [
-                { icon: '🎬', name: 'Video Converter', desc: 'Convert between video formats' },
-                { icon: '🗜️', name: 'Compress Video', desc: 'Reduce video file size' },
-                { icon: '✂️', name: 'Trim Video', desc: 'Cut and trim video clips' },
-                { icon: '🔄', name: 'Rotate Video', desc: 'Rotate videos by 90/180/270 degrees' },
-                { icon: '🎵', name: 'Video to MP3', desc: 'Extract audio from video files' },
-                { icon: '📺', name: 'Video to GIF', desc: 'Convert video clips to animated GIFs' },
-                { icon: '🔇', name: 'Remove Audio', desc: 'Delete audio track from video' },
-                { icon: '📏', name: 'Resize Video', desc: 'Change video resolution' },
-                { icon: '⏱️', name: 'Change Speed', desc: 'Speed up or slow down videos' },
-                { icon: '🖼️', name: 'Video to JPG', desc: 'Extract frames as images' },
-                { icon: '🎞️', name: 'Loop Video', desc: 'Create looping video clips' },
-                { icon: '🔄', name: 'Reverse Video', desc: 'Play video in reverse' },
-                { icon: '📝', name: 'Add Subtitles', desc: 'Insert subtitles to videos' },
-                { icon: '🎨', name: 'Video Filters', desc: 'Apply effects and filters' },
-                { icon: '🖌️', name: 'Add Watermark', desc: 'Protect videos with watermarks' },
-                { icon: '📹', name: 'Screen Recorder', desc: 'Record your screen online' }
-            ],
-            ai: [
-                { icon: '✍️', name: 'AI Writer', desc: 'Generate content with AI' },
-                { icon: '📝', name: 'AI Summarizer', desc: 'Summarize long texts instantly' },
-                { icon: '🔤', name: 'AI Paraphraser', desc: 'Rewrite text in different ways' },
-                { icon: '✅', name: 'Grammar Checker', desc: 'Fix grammar and spelling errors' },
-                { icon: '🌐', name: 'AI Translator', desc: 'Translate text between languages' },
-                { icon: '📊', name: 'AI Content Generator', desc: 'Create blog posts and articles' },
-                { icon: '💡', name: 'AI Idea Generator', desc: 'Get creative ideas for any topic' },
-                { icon: '📧', name: 'Email Writer', desc: 'Compose professional emails' },
-                { icon: '🎓', name: 'Essay Writer', desc: 'Generate structured essays' },
-                { icon: '📱', name: 'Social Media Posts', desc: 'Create engaging social content' },
-                { icon: '🎤', name: 'Speech to Text', desc: 'Transcribe audio to text with AI' },
-                { icon: '🔊', name: 'Text to Speech', desc: 'Convert text to natural speech' },
-                { icon: '🖼️', name: 'AI Image Generator', desc: 'Create images from text prompts' },
-                { icon: '🎨', name: 'Logo Maker', desc: 'Design logos with AI assistance' },
-                { icon: '📖', name: 'Story Generator', desc: 'Generate creative stories' },
-                { icon: '🎯', name: 'SEO Optimizer', desc: 'Optimize content for search engines' }
+                { id: 'trimVideo', icon: '✂️', name: 'Trim Video', desc: 'Cut and trim video clips precisely', keywords: 'trim video, cut video, video cutter' },
+                { id: 'compressVideo', icon: '🗜️', name: 'Compress Video', desc: 'Reduce video file size significantly', keywords: 'compress video, reduce video size' },
+                { id: 'videoToGIF', icon: '📺', name: 'Video to GIF', desc: 'Convert video clips to animated GIF', keywords: 'video to gif, gif maker, animated gif' },
+                { id: 'rotateVideo', icon: '🔄', name: 'Rotate Video', desc: 'Rotate video by 90, 180, or 270 degrees', keywords: 'rotate video, flip video' },
+                { id: 'videoSpeed', icon: '⏱️', name: 'Change Video Speed', desc: 'Speed up or slow down your videos', keywords: 'video speed, slow motion, fast forward' },
+                { id: 'reverseVideo', icon: '⏮️', name: 'Reverse Video', desc: 'Play video backwards in reverse', keywords: 'reverse video, backward video' },
+                { id: 'loopVideo', icon: '🔁', name: 'Loop Video', desc: 'Create seamless looping videos', keywords: 'loop video, repeat video' },
+                { id: 'muteVideo', icon: '🔇', name: 'Mute Video', desc: 'Remove audio track from video', keywords: 'mute video, remove audio, silent video' }
             ],
             file: [
-                { icon: '📁', name: 'Archive Extractor', desc: 'Extract ZIP, RAR, 7Z files' },
-                { icon: '🗜️', name: 'File Compressor', desc: 'Compress files to ZIP/RAR' },
-                { icon: '🔄', name: 'Office Converter', desc: 'Convert between Office formats' },
-                { icon: '📊', name: 'CSV to Excel', desc: 'Convert CSV files to Excel' },
-                { icon: '📈', name: 'Excel to CSV', desc: 'Export Excel data to CSV' },
-                { icon: '📄', name: 'XML Converter', desc: 'Convert XML to other formats' },
-                { icon: '🔤', name: 'JSON Formatter', desc: 'Format and validate JSON' },
-                { icon: '📑', name: 'Markdown to HTML', desc: 'Convert Markdown to HTML' },
-                { icon: '📋', name: 'HTML to Markdown', desc: 'Convert HTML to Markdown' },
-                { icon: '🎵', name: 'Audio Converter', desc: 'Convert between audio formats' },
-                { icon: '📚', name: 'EPUB Converter', desc: 'Convert ebooks to/from EPUB' },
-                { icon: '📖', name: 'MOBI Converter', desc: 'Convert Kindle ebook formats' }
+                { id: 'wordCounter', icon: '📝', name: 'Word Counter', desc: 'Count words, characters, sentences, paragraphs', keywords: 'word counter, character counter, text counter' },
+                { id: 'caseConverter', icon: '🔤', name: 'Case Converter', desc: 'Change text case: upper, lower, title case', keywords: 'case converter, uppercase, lowercase, title case' },
+                { id: 'textReverse', icon: '↩️', name: 'Reverse Text', desc: 'Reverse text order or flip upside down', keywords: 'reverse text, flip text, backwards text' },
+                { id: 'sortLines', icon: '↕️', name: 'Sort Lines', desc: 'Sort text lines alphabetically or numerically', keywords: 'sort lines, alphabetize, order text' },
+                { id: 'removeDuplicates', icon: '🗑️', name: 'Remove Duplicates', desc: 'Delete duplicate lines from text', keywords: 'remove duplicates, unique lines' },
+                { id: 'findReplace', icon: '🔍', name: 'Find & Replace', desc: 'Search and replace text in bulk', keywords: 'find and replace, search replace' },
+                { id: 'base64Encode', icon: '🔐', name: 'Base64 Encode/Decode', desc: 'Encode or decode Base64 text', keywords: 'base64 encoder, base64 decoder' },
+                { id: 'urlEncode', icon: '🌐', name: 'URL Encode/Decode', desc: 'Encode or decode URL strings', keywords: 'url encoder, url decoder, percent encoding' },
+                { id: 'jsonFormatter', icon: '📋', name: 'JSON Formatter', desc: 'Format and validate JSON data', keywords: 'json formatter, json validator, beautify json' },
+                { id: 'markdownPreview', icon: '📄', name: 'Markdown Preview', desc: 'Preview Markdown formatted text', keywords: 'markdown preview, markdown viewer' }
             ],
             text: [
-                { icon: '📝', name: 'Word Counter', desc: 'Count words, characters, paragraphs' },
-                { icon: '🔤', name: 'Case Converter', desc: 'Change text case and formatting' },
-                { icon: '📋', name: 'Text Compare', desc: 'Find differences between texts' },
-                { icon: '🔍', name: 'Find and Replace', desc: 'Search and replace text' },
-                { icon: '✂️', name: 'Text Splitter', desc: 'Split text by delimiter' },
-                { icon: '🔗', name: 'Text Combiner', desc: 'Merge multiple texts' },
-                { icon: '🎲', name: 'Lorem Ipsum', desc: 'Generate placeholder text' },
-                { icon: '🔐', name: 'Text Encoder', desc: 'Encode/decode Base64, URL' },
-                { icon: '🔑', name: 'Hash Generator', desc: 'Generate MD5, SHA hashes' },
-                { icon: '📏', name: 'Text Formatter', desc: 'Format and beautify text' },
-                { icon: '🗑️', name: 'Remove Duplicates', desc: 'Delete duplicate lines' },
-                { icon: '↔️', name: 'Sort Lines', desc: 'Sort text lines alphabetically' }
+                { id: 'textDiff', icon: '📊', name: 'Text Compare', desc: 'Find differences between two texts', keywords: 'text compare, diff tool, text difference' },
+                { id: 'loremIpsum', icon: '📝', name: 'Lorem Ipsum Generator', desc: 'Generate placeholder text for design', keywords: 'lorem ipsum, placeholder text' },
+                { id: 'randomPassword', icon: '🔑', name: 'Password Generator', desc: 'Generate strong random passwords', keywords: 'password generator, random password, strong password' },
+                { id: 'hashGenerator', icon: '🔒', name: 'Hash Generator', desc: 'Generate MD5, SHA-1, SHA-256 hashes', keywords: 'hash generator, md5, sha256' },
+                { id: 'textToSpeech', icon: '🔊', name: 'Text to Speech', desc: 'Convert text to spoken audio', keywords: 'text to speech, tts, speech synthesis' },
+                { id: 'qrGenerator', icon: '📱', name: 'QR Code Generator', desc: 'Create QR codes from text or URLs', keywords: 'qr code generator, qr maker' }
             ]
         };
 
@@ -543,7 +690,7 @@
                 const container = document.getElementById(`${category}Tools`);
                 if (container) {
                     container.innerHTML = tools[category].map(tool => `
-                        <div class="tool-card">
+                        <div class="tool-card" onclick="openTool('${tool.id}')" data-keywords="${tool.keywords}">
                             <div class="tool-icon">${tool.icon}</div>
                             <h3>${tool.name}</h3>
                             <p>${tool.desc}</p>
@@ -551,6 +698,569 @@
                     `).join('');
                 }
             });
+        }
+
+        function openTool(toolId) {
+            const modal = document.getElementById('toolModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            const allTools = [...tools.pdf, ...tools.image, ...tools.video, ...tools.file, ...tools.text];
+            const tool = allTools.find(t => t.id === toolId);
+            
+            if (!tool) return;
+            
+            modalTitle.textContent = tool.name;
+            modalBody.innerHTML = getToolHTML(toolId);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            initializeTool(toolId);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('toolModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function getToolHTML(toolId) {
+            const templates = {
+                mergePDF: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>📁 Drop PDF files here or click to browse</h3>
+                        <p>Select multiple PDF files to merge</p>
+                        <input type="file" id="fileInput" accept=".pdf" multiple>
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select PDF Files</button>
+                    </div>
+                    <div id="fileList"></div>
+                    <button class="btn" id="mergeBtn" style="display:none;" onclick="executeMergePDF()">Merge PDFs</button>
+                    <div id="progressBar" style="display:none;" class="progress-bar"><div class="progress-fill"></div></div>
+                    <div id="result"></div>
+                `,
+                compressImage: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>🖼️ Drop image here or click to browse</h3>
+                        <p>Supports JPG, PNG, WebP</p>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Image</button>
+                    </div>
+                    <div class="tool-options" id="options" style="display:none;">
+                        <label>Quality: <span id="qualityValue">80</span>%
+                            <input type="range" id="quality" min="1" max="100" value="80" oninput="document.getElementById('qualityValue').textContent = this.value">
+                        </label>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="compressBtn" style="display:none;" onclick="executeCompressImage()">Compress Image</button>
+                    <div id="result"></div>
+                `,
+                resizeImage: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>🖼️ Drop image here or click to browse</h3>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Image</button>
+                    </div>
+                    <div class="tool-options" id="options" style="display:none;">
+                        <label>Width (px): <input type="number" id="width" value="800"></label>
+                        <label>Height (px): <input type="number" id="height" value="600"></label>
+                        <label><input type="checkbox" id="maintain" checked> Maintain aspect ratio</label>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="resizeBtn" style="display:none;" onclick="executeResizeImage()">Resize Image</button>
+                    <div id="result"></div>
+                `,
+                cropImage: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>✂️ Drop image here or click to browse</h3>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Image</button>
+                    </div>
+                    <div class="tool-options" id="options" style="display:none;">
+                        <label>X: <input type="number" id="cropX" value="0" min="0"></label>
+                        <label>Y: <input type="number" id="cropY" value="0" min="0"></label>
+                        <label>Width: <input type="number" id="cropWidth" value="400"></label>
+                        <label>Height: <input type="number" id="cropHeight" value="400"></label>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="cropBtn" style="display:none;" onclick="executeCropImage()">Crop Image</button>
+                    <div id="result"></div>
+                `,
+                rotateImage: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>🔄 Drop image here or click to browse</h3>
+                        <input type="file" id="fileInput" accept="image/*">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Image</button>
+                    </div>
+                    <div class="tool-options" id="options" style="display:none;">
+                        <label>Rotation Angle:
+                            <select id="angle">
+                                <option value="90">90° Clockwise</option>
+                                <option value="180">180°</option>
+                                <option value="270">270° (90° Counter-clockwise)</option>
+                            </select>
+                        </label>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="rotateBtn" style="display:none;" onclick="executeRotateImage()">Rotate Image</button>
+                    <div id="result"></div>
+                `,
+                jpgToPng: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>📸 Drop JPG image here</h3>
+                        <input type="file" id="fileInput" accept=".jpg,.jpeg">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select JPG</button>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="convertBtn" style="display:none;" onclick="executeJpgToPng()">Convert to PNG</button>
+                    <div id="result"></div>
+                `,
+                pngToJpg: `
+                    <div class="upload-area" id="dropZone">
+                        <h3>📸 Drop PNG image here</h3>
+                        <input type="file" id="fileInput" accept=".png">
+                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select PNG</button>
+                    </div>
+                    <div class="tool-options" id="options" style="display:none;">
+                        <label>Quality: <span id="qualityValue">90</span>%
+                            <input type="range" id="quality" min="1" max="100" value="90" oninput="document.getElementById('qualityValue').textContent = this.value">
+                        </label>
+                    </div>
+                    <canvas id="preview" style="display:none;"></canvas>
+                    <button class="btn" id="convertBtn" style="display:none;" onclick="executePngToJpg()">Convert to JPG</button>
+                    <div id="result"></div>
+                `,
+                wordCounter: `
+                    <textarea id="textInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" placeholder="Paste or type your text here..."></textarea>
+                    <div id="stats" style="margin-top:1rem;"></div>
+                `,
+                caseConverter: `
+                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter text here..."></textarea>
+                    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+                        <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
+                        <button class="btn" onclick="convertCase('lower')">lowercase</button>
+                        <button class="btn" onclick="convertCase('title')">Title Case</button>
+                        <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
+                        <button class="btn" onclick="convertCase('toggle')">tOGGLE cASE</button>
+                    </div>
+                    <div id="result"></div>
+                `,
+                base64Encode: `
+                    <div style="margin-bottom:1rem;">
+                        <label><input type="radio" name="mode" value="encode" checked> Encode</label>
+                        <label><input type="radio" name="mode" value="decode"> Decode</label>
+                    </div>
+                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter text..."></textarea>
+                    <button class="btn" onclick="executeBase64()">Convert</button>
+                    <div id="result" style="margin-top:1rem;"></div>
+                `,
+                jsonFormatter: `
+                    <textarea id="jsonInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;font-family:monospace;" placeholder='{"key": "value"}'></textarea>
+                    <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
+                        <button class="btn" onclick="formatJSON()">Format</button>
+                        <button class="btn" onclick="minifyJSON()">Minify</button>
+                        <button class="btn" onclick="validateJSON()">Validate</button>
+                    </div>
+                    <div id="result"></div>
+                `
+            };
+            
+            return templates[toolId] || `
+                <div class="upload-area">
+                    <h3>🚧 Tool Implementation</h3>
+                    <p>This tool is being optimized for the best experience.</p>
+                </div>
+            `;
+        }
+
+        function initializeTool(toolId) {
+            const fileInput = document.getElementById('fileInput');
+            const dropZone = document.getElementById('dropZone');
+            
+            if (fileInput && dropZone) {
+                fileInput.addEventListener('change', (e) => handleFileSelect(e, toolId));
+                
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, preventDefaults, false);
+                });
+                
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => dropZone.classList.add('dragover'), false);
+                });
+                
+                ['dragleave', 'drop'].forEach(eventName => {
+                    dropZone.addEventListener(eventName, () => dropZone.classList.remove('dragover'), false);
+                });
+                
+                dropZone.addEventListener('drop', (e) => handleDrop(e, toolId), false);
+                dropZone.addEventListener('click', () => fileInput.click());
+            }
+            
+            if (toolId === 'wordCounter') {
+                document.getElementById('textInput').addEventListener('input', updateWordCount);
+            }
+        }
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        function handleDrop(e, toolId) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files, toolId);
+        }
+
+        function handleFileSelect(e, toolId) {
+            handleFiles(e.target.files, toolId);
+        }
+
+        function handleFiles(files, toolId) {
+            if (files.length === 0) return;
+            
+            if (toolId === 'mergePDF') {
+                window.pdfFiles = Array.from(files);
+                displayPDFList();
+            } else if (toolId.includes('Image') || toolId.includes('Png') || toolId.includes('Jpg') || toolId.includes('WebP')) {
+                loadImage(files[0], toolId);
+            }
+        }
+
+        async function displayPDFList() {
+            const fileList = document.getElementById('fileList');
+            const mergeBtn = document.getElementById('mergeBtn');
+            
+            fileList.innerHTML = '<h3>Selected Files:</h3>' + window.pdfFiles.map((f, i) => `
+                <div class="file-info">
+                    <strong>${i + 1}.</strong> ${f.name} (${(f.size / 1024).toFixed(2)} KB)
+                </div>
+            `).join('');
+            
+            mergeBtn.style.display = 'block';
+        }
+
+        async function executeMergePDF() {
+            const result = document.getElementById('result');
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = progressBar.querySelector('.progress-fill');
+            
+            try {
+                progressBar.style.display = 'block';
+                progressFill.style.width = '10%';
+                
+                const mergedPdf = await PDFDocument.create();
+                
+                for (let i = 0; i < window.pdfFiles.length; i++) {
+                    progressFill.style.width = ((i + 1) / window.pdfFiles.length * 80) + '%';
+                    
+                    const fileBuffer = await window.pdfFiles[i].arrayBuffer();
+                    const pdf = await PDFDocument.load(fileBuffer);
+                    const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+                    pages.forEach(page => mergedPdf.addPage(page));
+                }
+                
+                progressFill.style.width = '90%';
+                const pdfBytes = await mergedPdf.save();
+                progressFill.style.width = '100%';
+                
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ PDF Merged Successfully!</h3>
+                        <p>Total pages: ${mergedPdf.getPageCount()}</p>
+                        <a href="${url}" download="merged.pdf" class="btn">Download Merged PDF</a>
+                    </div>
+                `;
+            } catch (error) {
+                result.innerHTML = `<div class="file-info" style="color:red;">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        function loadImage(file, toolId) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    window.currentImage = img;
+                    showImagePreview(img, toolId);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function showImagePreview(img, toolId) {
+            const canvas = document.getElementById('preview');
+            const ctx = canvas.getContext('2d');
+            const options = document.getElementById('options');
+            
+            canvas.width = Math.min(img.width, 800);
+            canvas.height = (canvas.width / img.width) * img.height;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
+            canvas.style.display = 'block';
+            if (options) options.style.display = 'block';
+            
+            const btnId = toolId === 'compressImage' ? 'compressBtn' : 
+                         toolId === 'resizeImage' ? 'resizeBtn' :
+                         toolId === 'cropImage' ? 'cropBtn' :
+                         toolId === 'rotateImage' ? 'rotateBtn' :
+                         'convertBtn';
+            const btn = document.getElementById(btnId);
+            if (btn) btn.style.display = 'block';
+        }
+
+        async function executeCompressImage() {
+            const canvas = document.getElementById('preview');
+            const quality = document.getElementById('quality').value / 100;
+            const result = document.getElementById('result');
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const originalSize = window.currentImage.src.length;
+                const newSize = blob.size;
+                const savings = ((1 - newSize / originalSize) * 100).toFixed(1);
+                
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Image Compressed!</h3>
+                        <p>Original: ${(originalSize / 1024).toFixed(2)} KB</p>
+                        <p>Compressed: ${(newSize / 1024).toFixed(2)} KB</p>
+                        <p>Saved: ${savings}%</p>
+                        <a href="${url}" download="compressed-image.jpg" class="btn">Download Compressed Image</a>
+                    </div>
+                `;
+            }, 'image/jpeg', quality);
+        }
+
+        async function executeResizeImage() {
+            const width = parseInt(document.getElementById('width').value);
+            const height = parseInt(document.getElementById('height').value);
+            const maintain = document.getElementById('maintain').checked;
+            const result = document.getElementById('result');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            if (maintain) {
+                const ratio = window.currentImage.width / window.currentImage.height;
+                canvas.width = width;
+                canvas.height = width / ratio;
+            } else {
+                canvas.width = width;
+                canvas.height = height;
+            }
+            
+            ctx.drawImage(window.currentImage, 0, 0, canvas.width, canvas.height);
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Image Resized!</h3>
+                        <p>New dimensions: ${canvas.width} x ${canvas.height}px</p>
+                        <a href="${url}" download="resized-image.png" class="btn">Download Resized Image</a>
+                    </div>
+                `;
+            }, 'image/png');
+        }
+
+        async function executeCropImage() {
+            const x = parseInt(document.getElementById('cropX').value);
+            const y = parseInt(document.getElementById('cropY').value);
+            const width = parseInt(document.getElementById('cropWidth').value);
+            const height = parseInt(document.getElementById('cropHeight').value);
+            const result = document.getElementById('result');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+            
+            ctx.drawImage(window.currentImage, x, y, width, height, 0, 0, width, height);
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Image Cropped!</h3>
+                        <p>Cropped to: ${width} x ${height}px</p>
+                        <a href="${url}" download="cropped-image.png" class="btn">Download Cropped Image</a>
+                    </div>
+                `;
+            }, 'image/png');
+        }
+
+        async function executeRotateImage() {
+            const angle = parseInt(document.getElementById('angle').value);
+            const result = document.getElementById('result');
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            if (angle === 90 || angle === 270) {
+                canvas.width = window.currentImage.height;
+                canvas.height = window.currentImage.width;
+            } else {
+                canvas.width = window.currentImage.width;
+                canvas.height = window.currentImage.height;
+            }
+            
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(angle * Math.PI / 180);
+            ctx.drawImage(window.currentImage, -window.currentImage.width / 2, -window.currentImage.height / 2);
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Image Rotated!</h3>
+                        <p>Rotated by ${angle}°</p>
+                        <a href="${url}" download="rotated-image.png" class="btn">Download Rotated Image</a>
+                    </div>
+                `;
+            }, 'image/png');
+        }
+
+        async function executeJpgToPng() {
+            const canvas = document.getElementById('preview');
+            const result = document.getElementById('result');
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Converted to PNG!</h3>
+                        <p>File size: ${(blob.size / 1024).toFixed(2)} KB</p>
+                        <a href="${url}" download="converted-image.png" class="btn">Download PNG</a>
+                    </div>
+                `;
+            }, 'image/png');
+        }
+
+        async function executePngToJpg() {
+            const canvas = document.getElementById('preview');
+            const quality = document.getElementById('quality').value / 100;
+            const result = document.getElementById('result');
+            
+            canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                result.innerHTML = `
+                    <div class="file-info">
+                        <h3>✅ Converted to JPG!</h3>
+                        <p>File size: ${(blob.size / 1024).toFixed(2)} KB</p>
+                        <a href="${url}" download="converted-image.jpg" class="btn">Download JPG</a>
+                    </div>
+                `;
+            }, 'image/jpeg', quality);
+        }
+
+        function updateWordCount() {
+            const text = document.getElementById('textInput').value;
+            const stats = document.getElementById('stats');
+            
+            const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+            const characters = text.length;
+            const charsNoSpaces = text.replace(/\s/g, '').length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+            const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+            const readTime = Math.ceil(words / 200);
+            
+            stats.innerHTML = `
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1rem;">
+                    <div class="file-info"><strong>Words:</strong> ${words}</div>
+                    <div class="file-info"><strong>Characters:</strong> ${characters}</div>
+                    <div class="file-info"><strong>Characters (no spaces):</strong> ${charsNoSpaces}</div>
+                    <div class="file-info"><strong>Sentences:</strong> ${sentences}</div>
+                    <div class="file-info"><strong>Paragraphs:</strong> ${paragraphs}</div>
+                    <div class="file-info"><strong>Reading time:</strong> ${readTime} min</div>
+                </div>
+            `;
+        }
+
+        function convertCase(type) {
+            const input = document.getElementById('textInput');
+            const result = document.getElementById('result');
+            let text = input.value;
+            let converted = '';
+            
+            switch(type) {
+                case 'upper':
+                    converted = text.toUpperCase();
+                    break;
+                case 'lower':
+                    converted = text.toLowerCase();
+                    break;
+                case 'title':
+                    converted = text.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+                    break;
+                case 'sentence':
+                    converted = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, (c) => c.toUpperCase());
+                    break;
+                case 'toggle':
+                    converted = text.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('');
+                    break;
+            }
+            
+            result.innerHTML = `<textarea style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${converted}</textarea>`;
+        }
+
+        function executeBase64() {
+            const input = document.getElementById('textInput').value;
+            const mode = document.querySelector('input[name="mode"]:checked').value;
+            const result = document.getElementById('result');
+            
+            try {
+                let output = '';
+                if (mode === 'encode') {
+                    output = btoa(input);
+                } else {
+                    output = atob(input);
+                }
+                result.innerHTML = `<textarea style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${output}</textarea>`;
+            } catch (e) {
+                result.innerHTML = `<div class="file-info" style="color:red;">❌ Error: Invalid input</div>`;
+            }
+        }
+
+        function formatJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const result = document.getElementById('result');
+            
+            try {
+                const parsed = JSON.parse(input);
+                const formatted = JSON.stringify(parsed, null, 2);
+                result.innerHTML = `<textarea style="width:100%;height:300px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;font-family:monospace;" readonly>${formatted}</textarea>`;
+            } catch (e) {
+                result.innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON: ${e.message}</div>`;
+            }
+        }
+
+        function minifyJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const result = document.getElementById('result');
+            
+            try {
+                const parsed = JSON.parse(input);
+                const minified = JSON.stringify(parsed);
+                result.innerHTML = `<textarea style="width:100%;height:100px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;font-family:monospace;" readonly>${minified}</textarea>`;
+            } catch (e) {
+                result.innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON: ${e.message}</div>`;
+            }
+        }
+
+        function validateJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const result = document.getElementById('result');
+            
+            try {
+                JSON.parse(input);
+                result.innerHTML = `<div class="file-info" style="color:green;">✅ Valid JSON!</div>`;
+            } catch (e) {
+                result.innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON: ${e.message}</div>`;
+            }
         }
 
         const searchInput = document.getElementById('searchInput');
@@ -561,14 +1271,22 @@
             allCards.forEach(card => {
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
+                const keywords = card.dataset.keywords.toLowerCase();
                 
-                if (title.includes(query) || desc.includes(query)) {
+                if (title.includes(query) || desc.includes(query) || keywords.includes(query)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
             });
         });
+
+        window.onclick = (e) => {
+            const modal = document.getElementById('toolModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        };
 
         renderTools();
     </script>
