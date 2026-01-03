@@ -1,0 +1,45 @@
+# robots.txt for InFinia Tools
+# https://uzairali-18.github.io/InFinia-Tools/
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of specific files (if any)
+# Currently allowing all content
+
+# Sitemap location
+Sitemap: https://uzairali-18.github.io/InFinia-Tools/sitemap.xml
+
+# Crawl-delay (optional - only if you want to limit crawl rate)
+# User-agent: *
+# Crawl-delay: 10
+
+# Specific directives for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
