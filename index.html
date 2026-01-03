@@ -3,1490 +3,1335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InFinia Tools - Free Online PDF, Image, Video & File Converter | No Registration</title>
-    <meta name="description" content="Free online tools for PDF conversion, image editing, video compression, and file conversion. Convert PDF to Word, compress images, edit videos - all free, no signup required.">
-    <meta name="keywords" content="free pdf converter, pdf to word, compress pdf, merge pdf, image converter, jpg to png, video compressor, file converter online, free online tools">
+    <meta name="description" content="InFinia Tools - Free online tools for PDF, Image, Text processing. Word counter, image compressor, password generator, QR code maker and 20+ free utilities.">
+    <meta name="keywords" content="free online tools, word counter, image compressor, password generator, QR code generator, text tools, image tools, file converter, free utilities">
+    <meta name="author" content="Uzair Ali - SEO Specialist & Web Developer">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="InFinia Tools - Free Online Utilities & Converters">
+    <meta property="og:description" content="20+ free online tools for text, image, and file processing. No registration required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infiniatools.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="InFinia Tools - Free Online Utilities">
     <link rel="canonical" href="https://infiniatools.com">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect rx='15' width='100' height='100' fill='%234f46e5'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>∞</text></svg>">
+    <title>InFinia Tools - Free Online Text, Image & File Tools | No Registration</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 3rem 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            position: relative;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 1rem 3rem 1rem 1rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #667eea;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 20px;
-        }
-
-        .breadcrumb {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .breadcrumb a {
-            color: #667eea;
-            text-decoration: none;
-        }
-
-        .category {
-            margin-bottom: 2.5rem;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #667eea;
-        }
-
-        .category-icon {
-            font-size: 1.5rem;
-        }
-
-        .category h2 {
-            font-size: 1.6rem;
-            color: #667eea;
-            font-weight: 700;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .tool-card {
-            background: white;
-            padding: 1.3rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
-        }
-
-        .tool-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.6rem;
-            display: block;
-        }
-
-        .tool-card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.4rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .tool-card p {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background: white;
-            max-width: 800px;
-            margin: 2rem auto;
-            border-radius: 12px;
-            padding: 2rem;
-            max-height: 90vh;
-            overflow-y: auto;
-            animation: slideDown 0.3s;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .modal-header h2 {
-            color: #667eea;
-            font-size: 1.6rem;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: #333;
-        }
-
-        .upload-area {
-            border: 3px dashed #667eea;
-            border-radius: 10px;
-            padding: 2.5rem;
-            text-align: center;
-            background: #f7fafc;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 1.5rem;
-        }
-
-        .upload-area:hover {
-            background: #edf2f7;
-            border-color: #764ba2;
-        }
-
-        .upload-area.dragover {
-            background: #e6f3ff;
-            border-color: #4299e1;
-        }
-
-        input[type="file"] {
-            display: none;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.9rem 1.8rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .file-info {
-            background: #f7fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 1rem 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        .stats {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .stats h2 {
-            margin-bottom: 1.5rem;
-            color: #333;
-            font-size: 1.5rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.2rem;
-            color: #667eea;
-            margin-bottom: 0.4rem;
-            font-weight: 700;
-        }
-
-        .maintained-by {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-
-        .maintained-by h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .developer-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .developer-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #667eea;
-        }
-
-        .developer-info {
-            text-align: left;
-        }
-
-        .developer-info h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .developer-info p {
-            color: #666;
-            margin-bottom: 0.8rem;
-        }
-
-        footer {
-            background: #2d3748;
-            color: white;
-            padding: 2.5rem 20px 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: #cbd5e0;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #4a5568;
-            color: #cbd5e0;
-            font-size: 0.9rem;
-        }
-
-        .tool-options {
-            margin: 1rem 0;
-        }
-
-        .tool-options label {
-            display: block;
-            margin: 0.5rem 0;
-            font-weight: 500;
-        }
-
-        .tool-options input,
-        .tool-options select {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-            margin-top: 0.25rem;
-        }
-
-        canvas {
-            max-width: 100%;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        #preview {
-            max-width: 100%;
-            margin: 1rem 0;
-            border-radius: 8px;
-        }
-
-        video {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .tools-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-
-            .modal-content {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-
-            .developer-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .developer-info {
-                text-align: center;
-            }
-        }
+        * { scroll-behavior: smooth; }
+        .tool-card { transition: all 0.3s ease; }
+        .tool-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2); }
+        .tool-icon { transition: all 0.3s ease; }
+        .tool-card:hover .tool-icon { transform: rotate(10deg) scale(1.1); }
+        .gradient-bg { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%); }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .pulse-hover:hover { animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "InFinia Tools",
+        "description": "Free online tools for text, image, and file processing",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="#" class="logo" onclick="location.reload()">⚡ InFinia Tools</a>
-            <ul class="nav-links">
-                <li><a href="#pdf">PDF Tools</a></li>
-                <li><a href="#image">Image Tools</a></li>
-                <li><a href="#video">Video Tools</a></li>
-                <li><a href="#text">Text Tools</a></li>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold flex items-center gap-2" aria-label="InFinia Tools Home">
+                <span class="text-3xl">∞</span> InFinia Tools
+            </a>
+            <ul class="hidden md:flex gap-6 text-sm font-medium">
+                <li><a href="#text-tools" class="hover:text-purple-200 transition">Text Tools</a></li>
+                <li><a href="#image-tools" class="hover:text-purple-200 transition">Image Tools</a></li>
+                <li><a href="#generator-tools" class="hover:text-purple-200 transition">Generators</a></li>
+                <li><a href="#converter-tools" class="hover:text-purple-200 transition">Converters</a></li>
             </ul>
+            <button id="mobileMenuBtn" class="md:hidden text-2xl">☰</button>
         </nav>
+        <div id="mobileMenu" class="hidden md:hidden px-4 pb-4">
+            <a href="#text-tools" class="block py-2">Text Tools</a>
+            <a href="#image-tools" class="block py-2">Image Tools</a>
+            <a href="#generator-tools" class="block py-2">Generators</a>
+            <a href="#converter-tools" class="block py-2">Converters</a>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Free Online Tools for PDF, Images, Videos & Files</h1>
-        <p>Convert, compress, merge, and edit your files instantly. 100% free, secure, and no registration required.</p>
-        <div class="search-container">
-            <input type="text" class="search-box" placeholder="Search for a tool..." id="searchInput" aria-label="Search tools">
-            <span class="search-icon">🔍</span>
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Free Online Tools That Actually Work</h1>
+            <p class="text-lg md:text-xl text-purple-100 mb-8 max-w-2xl mx-auto">20+ powerful utilities for text processing, image editing, and file conversion. No registration. No limits. 100% Free.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#text-tools" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-purple-100 transition">Explore Tools</a>
+                <a href="#about" class="border-2 border-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition">Learn More</a>
+            </div>
         </div>
     </section>
 
-    <div class="container">
-        <div class="stats">
-            <h2>Trusted Worldwide for Fast & Secure File Processing</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>90+</h3>
-                    <p>Free Tools</p>
+    <!-- Quick Stats -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div><span class="text-3xl font-bold text-indigo-600">20+</span><p class="text-gray-600">Free Tools</p></div>
+            <div><span class="text-3xl font-bold text-indigo-600">0</span><p class="text-gray-600">Registration</p></div>
+            <div><span class="text-3xl font-bold text-indigo-600">100%</span><p class="text-gray-600">Privacy Safe</p></div>
+            <div><span class="text-3xl font-bold text-indigo-600">∞</span><p class="text-gray-600">Unlimited Use</p></div>
+        </div>
+    </section>
+
+    <!-- Text Tools Section -->
+    <section id="text-tools" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Text Tools</h2>
+            <p class="text-center text-gray-600 mb-10">Powerful text processing utilities for writers, students, and professionals</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('wordCounter')">
+                    <div class="tool-icon text-4xl mb-4">📝</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Word Counter</h3>
+                    <p class="text-gray-600 text-sm">Count words, characters, sentences, and paragraphs instantly</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('caseConverter')">
+                    <div class="tool-icon text-4xl mb-4">🔤</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Case Converter</h3>
+                    <p class="text-gray-600 text-sm">Convert text to UPPER, lower, Title, or Sentence case</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('textReverser')">
+                    <div class="tool-icon text-4xl mb-4">🔄</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Text Reverser</h3>
+                    <p class="text-gray-600 text-sm">Reverse your text, words, or individual characters</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('duplicateRemover')">
+                    <div class="tool-icon text-4xl mb-4">🗑️</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Remove Duplicates</h3>
+                    <p class="text-gray-600 text-sm">Remove duplicate lines from your text instantly</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('loremGenerator')">
+                    <div class="tool-icon text-4xl mb-4">📄</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Lorem Ipsum Generator</h3>
+                    <p class="text-gray-600 text-sm">Generate placeholder text for your designs</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('textSorter')">
+                    <div class="tool-icon text-4xl mb-4">📊</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Text Sorter</h3>
+                    <p class="text-gray-600 text-sm">Sort lines alphabetically or numerically</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('findReplace')">
+                    <div class="tool-icon text-4xl mb-4">🔍</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Find & Replace</h3>
+                    <p class="text-gray-600 text-sm">Find and replace text with advanced options</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('textEncoder')">
+                    <div class="tool-icon text-4xl mb-4">🔐</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Text Encoder</h3>
+                    <p class="text-gray-600 text-sm">Encode/decode Base64, URL, and HTML entities</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Tools Section -->
+    <section id="image-tools" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Image Tools</h2>
+            <p class="text-center text-gray-600 mb-10">Edit, compress, and convert images directly in your browser</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageResizer')">
+                    <div class="tool-icon text-4xl mb-4">📐</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Image Resizer</h3>
+                    <p class="text-gray-600 text-sm">Resize images to exact dimensions or percentage</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageCompressor')">
+                    <div class="tool-icon text-4xl mb-4">🗜️</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Image Compressor</h3>
+                    <p class="text-gray-600 text-sm">Compress images without losing visible quality</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageConverter')">
+                    <div class="tool-icon text-4xl mb-4">🔄</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Image Converter</h3>
+                    <p class="text-gray-600 text-sm">Convert between PNG, JPG, and WebP formats</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageCropper')">
+                    <div class="tool-icon text-4xl mb-4">✂️</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Image Cropper</h3>
+                    <p class="text-gray-600 text-sm">Crop images with precision controls</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageRotator')">
+                    <div class="tool-icon text-4xl mb-4">🔃</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Rotate & Flip</h3>
+                    <p class="text-gray-600 text-sm">Rotate images and flip horizontally or vertically</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('imageToBase64')">
+                    <div class="tool-icon text-4xl mb-4">💾</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Image to Base64</h3>
+                    <p class="text-gray-600 text-sm">Convert images to Base64 encoded strings</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generator Tools Section -->
+    <section id="generator-tools" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Generator Tools</h2>
+            <p class="text-center text-gray-600 mb-10">Generate passwords, QR codes, hashes, and more</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('passwordGenerator')">
+                    <div class="tool-icon text-4xl mb-4">🔑</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Password Generator</h3>
+                    <p class="text-gray-600 text-sm">Create strong, secure passwords with custom options</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('qrGenerator')">
+                    <div class="tool-icon text-4xl mb-4">📱</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">QR Code Generator</h3>
+                    <p class="text-gray-600 text-sm">Generate QR codes for URLs, text, and contact info</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('hashGenerator')">
+                    <div class="tool-icon text-4xl mb-4">🔒</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Hash Generator</h3>
+                    <p class="text-gray-600 text-sm">Generate MD5, SHA-1, SHA-256 hashes</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md cursor-pointer" onclick="openTool('uuidGenerator')">
+                    <div class="tool-icon text-4xl mb-4">🆔</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">UUID Generator</h3>
+                    <p class="text-gray-600 text-sm">Generate unique identifiers (UUID v4)</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Converter Tools Section -->
+    <section id="converter-tools" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2 text-gray-800">Converter Tools</h2>
+            <p class="text-center text-gray-600 mb-10">Convert units, colors, and data formats effortlessly</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('colorConverter')">
+                    <div class="tool-icon text-4xl mb-4">🎨</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Color Converter</h3>
+                    <p class="text-gray-600 text-sm">Convert between HEX, RGB, and HSL color formats</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('unitConverter')">
+                    <div class="tool-icon text-4xl mb-4">📏</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Unit Converter</h3>
+                    <p class="text-gray-600 text-sm">Convert length, weight, temperature, and more</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('jsonFormatter')">
+                    <div class="tool-icon text-4xl mb-4">{ }</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">JSON Formatter</h3>
+                    <p class="text-gray-600 text-sm">Format and validate JSON data beautifully</p>
+                </article>
+                <article class="tool-card bg-white rounded-xl p-6 shadow-md border cursor-pointer" onclick="openTool('numberConverter')">
+                    <div class="tool-icon text-4xl mb-4">🔢</div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Number Converter</h3>
+                    <p class="text-gray-600 text-sm">Convert between decimal, binary, hex, and octal</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold mb-6 text-gray-800">Why Choose InFinia Tools?</h2>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div>
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold mb-2">Lightning Fast</h3>
+                    <p class="text-gray-600 text-sm">All processing happens in your browser. No uploads, no waiting.</p>
                 </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Free Forever</p>
+                <div>
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="font-bold mb-2">100% Private</h3>
+                    <p class="text-gray-600 text-sm">Your files never leave your device. Complete privacy guaranteed.</p>
                 </div>
-                <div class="stat-item">
-                    <h3>0</h3>
-                    <p>Registration</p>
-                </div>
-                <div class="stat-item">
-                    <h3>⚡</h3>
-                    <p>Instant</p>
+                <div>
+                    <div class="text-4xl mb-4">💯</div>
+                    <h3 class="font-bold mb-2">Always Free</h3>
+                    <p class="text-gray-600 text-sm">No subscriptions, no limits. Use our tools as much as you need.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <section id="pdf" class="category">
-            <div class="category-header">
-                <span class="category-icon">📄</span>
-                <h2>PDF Tools - Convert, Merge, Compress & Edit PDFs</h2>
+    <!-- Maintained By Section -->
+    <section id="maintainer" class="py-12 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-6">Maintained By</h2>
+            <div class="flex flex-col items-center">
+                <img src="uzair-ali.jpg" alt="Uzair Ali - SEO Specialist & Web Developer" class="w-24 h-24 rounded-full border-4 border-white shadow-lg mb-4 object-cover bg-white">
+                <h3 class="text-xl font-bold">Uzair Ali</h3>
+                <p class="text-purple-200 mb-4">SEO Specialist & Web Developer</p>
+                <a href="https://uzairali.dev" rel="dofollow" target="_blank" class="inline-block bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-purple-100 transition pulse-hover">
+                    Reach Out to Uzair Ali For Your Work
+                </a>
             </div>
-            <div class="tools-grid" id="pdfTools"></div>
-        </section>
+        </div>
+    </section>
 
-        <section id="image" class="category">
-            <div class="category-header">
-                <span class="category-icon">🖼️</span>
-                <h2>Image Tools - Convert, Resize, Compress Images</h2>
-            </div>
-            <div class="tools-grid" id="imageTools"></div>
-        </section>
-
-        <section id="video" class="category">
-            <div class="category-header">
-                <span class="category-icon">🎬</span>
-                <h2>Video Tools - Convert, Compress, Trim Videos</h2>
-            </div>
-            <div class="tools-grid" id="videoTools"></div>
-        </section>
-
-        <section id="text" class="category">
-            <div class="category-header">
-                <span class="category-icon">📝</span>
-                <h2>Text Tools - Format, Count, Convert Text</h2>
-            </div>
-            <div class="tools-grid" id="textTools"></div>
-        </section>
-
-        <div class="maintained-by">
-            <h3>Maintained By</h3>
-            <div class="developer-card">
-                <img src="developer.jpg" alt="Uzair Ali - Web Developer" class="developer-image">
-                <div class="developer-info">
-                    <h4>Uzair Ali</h4>
-                    <p>Full Stack Developer</p>
-                    <a href="https://uzairali.portfolio.com" class="btn" rel="dofollow" target="_blank">Reach Out to Uzair Ali For Your Work</a>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2"><span class="text-2xl">∞</span> InFinia Tools</h3>
+                    <p class="text-gray-400 text-sm">Free online tools for everyday tasks. Fast, secure, and always available.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Text Tools</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" onclick="openTool('wordCounter')" class="hover:text-white">Word Counter</a></li>
+                        <li><a href="#" onclick="openTool('caseConverter')" class="hover:text-white">Case Converter</a></li>
+                        <li><a href="#" onclick="openTool('loremGenerator')" class="hover:text-white">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Image Tools</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" onclick="openTool('imageResizer')" class="hover:text-white">Image Resizer</a></li>
+                        <li><a href="#" onclick="openTool('imageCompressor')" class="hover:text-white">Image Compressor</a></li>
+                        <li><a href="#" onclick="openTool('imageConverter')" class="hover:text-white">Image Converter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Generators</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" onclick="openTool('passwordGenerator')" class="hover:text-white">Password Generator</a></li>
+                        <li><a href="#" onclick="openTool('qrGenerator')" class="hover:text-white">QR Code Generator</a></li>
+                        <li><a href="#" onclick="openTool('hashGenerator')" class="hover:text-white">Hash Generator</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Popular PDF Tools</h3>
-                <ul>
-                    <li><a href="#" onclick="openTool('mergePDF'); return false;">Merge PDF Files</a></li>
-                    <li><a href="#" onclick="openTool('splitPDF'); return false;">Split PDF Pages</a></li>
-                    <li><a href="#" onclick="openTool('compressPDF'); return false;">Compress PDF</a></li>
-                    <li><a href="#" onclick="openTool('rotatePDF'); return false;">Rotate PDF</a></li>
-                    <li><a href="#" onclick="openTool('pdfToImages'); return false;">PDF to Images</a></li>
-                    <li><a href="#" onclick="openTool('imagesToPDF'); return false;">Images to PDF</a></li>
-                </ul>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 InFinia Tools. All rights reserved. | <a href="#maintainer" class="hover:text-white">Maintained by Uzair Ali</a></p>
             </div>
-            <div class="footer-section">
-                <h3>Popular Image Tools</h3>
-                <ul>
-                    <li><a href="#" onclick="openTool('compressImage'); return false;">Compress Images</a></li>
-                    <li><a href="#" onclick="openTool('resizeImage'); return false;">Resize Images</a></li>
-                    <li><a href="#" onclick="openTool('jpgToPng'); return false;">JPG to PNG</a></li>
-                    <li><a href="#" onclick="openTool('pngToJpg'); return false;">PNG to JPG</a></li>
-                    <li><a href="#" onclick="openTool('cropImage'); return false;">Crop Images</a></li>
-                    <li><a href="#" onclick="openTool('rotateImage'); return false;">Rotate Images</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Video Tools</h3>
-                <ul>
-                    <li><a href="#" onclick="openTool('trimVideo'); return false;">Trim Video</a></li>
-                    <li><a href="#" onclick="openTool('compressVideo'); return false;">Compress Video</a></li>
-                    <li><a href="#" onclick="openTool('videoToGIF'); return false;">Video to GIF</a></li>
-                    <li><a href="#" onclick="openTool('rotateVideo'); return false;">Rotate Video</a></li>
-                    <li><a href="#" onclick="openTool('muteVideo'); return false;">Mute Video</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Text Tools</h3>
-                <ul>
-                    <li><a href="#" onclick="openTool('wordCounter'); return false;">Word Counter</a></li>
-                    <li><a href="#" onclick="openTool('caseConverter'); return false;">Case Converter</a></li>
-                    <li><a href="#" onclick="openTool('base64Encode'); return false;">Base64 Encode/Decode</a></li>
-                    <li><a href="#" onclick="openTool('jsonFormatter'); return false;">JSON Formatter</a></li>
-                    <li><a href="#" onclick="openTool('urlEncode'); return false;">URL Encode/Decode</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#pdf">PDF Tools</a></li>
-                    <li><a href="#image">Image Tools</a></li>
-                    <li><a href="#video">Video Tools</a></li>
-                    <li><a href="#text">Text Tools</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 InFinia Tools. All rights reserved.</p>
         </div>
     </footer>
 
-    <div id="toolModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Tool</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+    <!-- Tool Modal -->
+    <div id="toolModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto fade-in">
+            <div class="sticky top-0 bg-white border-b p-4 flex justify-between items-center">
+                <h2 id="toolTitle" class="text-xl font-bold text-gray-800"></h2>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
             </div>
-            <div id="modalBody"></div>
+            <div id="toolContent" class="p-6"></div>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
     <script>
-        const { PDFDocument, rgb, degrees } = PDFLib;
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
 
-        const tools = {
-            pdf: [
-                { id: 'mergePDF', icon: '🔗', name: 'Merge PDF', desc: 'Combine multiple PDF files into one', keywords: 'merge pdf, combine pdf, join pdf files' },
-                { id: 'splitPDF', icon: '✂️', name: 'Split PDF', desc: 'Extract pages from PDF document', keywords: 'split pdf, extract pages, separate pdf' },
-                { id: 'compressPDF', icon: '🗜️', name: 'Compress PDF', desc: 'Reduce PDF file size', keywords: 'compress pdf, reduce pdf size, optimize pdf' },
-                { id: 'rotatePDF', icon: '🔄', name: 'Rotate PDF', desc: 'Rotate PDF pages', keywords: 'rotate pdf, flip pdf pages' },
-                { id: 'pdfToImages', icon: '📸', name: 'PDF to Images', desc: 'Convert PDF pages to images', keywords: 'pdf to jpg, pdf to png' },
-                { id: 'imagesToPDF', icon: '📄', name: 'Images to PDF', desc: 'Convert images into PDF', keywords: 'images to pdf, jpg to pdf' },
-                { id: 'addPageNumbers', icon: '🔢', name: 'Add Page Numbers', desc: 'Number PDF pages', keywords: 'add page numbers' },
-                { id: 'deletePDFPages', icon: '🗑️', name: 'Delete Pages', desc: 'Remove pages from PDF', keywords: 'delete pdf pages' },
-                { id: 'reorderPDF', icon: '↕️', name: 'Reorder Pages', desc: 'Rearrange PDF pages', keywords: 'reorder pdf' }
-            ],
-            image: [
-                { id: 'compressImage', icon: '🗜️', name: 'Compress Image', desc: 'Reduce image file size', keywords: 'compress image, reduce size' },
-                { id: 'resizeImage', icon: '📏', name: 'Resize Image', desc: 'Change image dimensions', keywords: 'resize image, scale' },
-                { id: 'cropImage', icon: '✂️', name: 'Crop Image', desc: 'Cut images to size', keywords: 'crop image, cut' },
-                { id: 'rotateImage', icon: '🔄', name: 'Rotate Image', desc: 'Rotate images', keywords: 'rotate image, flip' },
-                { id: 'jpgToPng', icon: '📸', name: 'JPG to PNG', desc: 'Convert JPG to PNG', keywords: 'jpg to png converter' },
-                { id: 'pngToJpg', icon: '📸', name: 'PNG to JPG', desc: 'Convert PNG to JPG', keywords: 'png to jpg converter' },
-                { id: 'imageToWebP', icon: '🖼️', name: 'Convert to WebP', desc: 'Convert to WebP format', keywords: 'webp converter' },
-                { id: 'flipImage', icon: '↔️', name: 'Flip Image', desc: 'Flip horizontally/vertically', keywords: 'flip image, mirror' },
-                { id: 'grayscaleImage', icon: '⚫', name: 'Grayscale', desc: 'Convert to black and white', keywords: 'grayscale, black white' },
-                { id: 'invertImage', icon: '🔲', name: 'Invert Colors', desc: 'Invert image colors', keywords: 'invert colors, negative' },
-                { id: 'brightnessContrast', icon: '☀️', name: 'Adjust Brightness', desc: 'Change brightness/contrast', keywords: 'brightness, contrast' },
-                { id: 'imageBlur', icon: '💫', name: 'Blur Image', desc: 'Apply blur effect', keywords: 'blur image' }
-            ],
-            video: [
-                { id: 'trimVideo', icon: '✂️', name: 'Trim Video', desc: 'Cut video clips', keywords: 'trim video, cut video' },
-                { id: 'compressVideo', icon: '🗜️', name: 'Compress Video', desc: 'Reduce video size', keywords: 'compress video' },
-                { id: 'videoToGIF', icon: '📺', name: 'Video to GIF', desc: 'Convert to animated GIF', keywords: 'video to gif' },
-                { id: 'rotateVideo', icon: '🔄', name: 'Rotate Video', desc: 'Rotate video', keywords: 'rotate video' },
-                { id: 'videoSpeed', icon: '⏱️', name: 'Change Speed', desc: 'Speed up or slow down', keywords: 'video speed' },
-                { id: 'reverseVideo', icon: '⏮️', name: 'Reverse Video', desc: 'Play backwards', keywords: 'reverse video' },
-                { id: 'loopVideo', icon: '🔁', name: 'Loop Video', desc: 'Create looping video', keywords: 'loop video' },
-                { id: 'muteVideo', icon: '🔇', name: 'Mute Video', desc: 'Remove audio', keywords: 'mute video' },
-                { id: 'extractAudio', icon: '🎵', name: 'Extract Audio', desc: 'Get audio from video', keywords: 'extract audio' }
-            ],
-            text: [
-                { id: 'wordCounter', icon: '📝', name: 'Word Counter', desc: 'Count words and characters', keywords: 'word counter, character counter' },
-                { id: 'caseConverter', icon: '🔤', name: 'Case Converter', desc: 'Change text case', keywords: 'case converter, uppercase' },
-                { id: 'textReverse', icon: '↩️', name: 'Reverse Text', desc: 'Reverse text order', keywords: 'reverse text' },
-                { id: 'sortLines', icon: '↕️', name: 'Sort Lines', desc: 'Sort text lines', keywords: 'sort lines' },
-                { id: 'removeDuplicates', icon: '🗑️', name: 'Remove Duplicates', desc: 'Delete duplicate lines', keywords: 'remove duplicates' },
-                { id: 'findReplace', icon: '🔍', name: 'Find & Replace', desc: 'Search and replace', keywords: 'find replace' },
-                { id: 'base64Encode', icon: '🔐', name: 'Base64 Encode', desc: 'Encode/decode Base64', keywords: 'base64 encoder' },
-                { id: 'urlEncode', icon: '🌐', name: 'URL Encode', desc: 'Encode/decode URLs', keywords: 'url encoder' },
-                { id: 'jsonFormatter', icon: '📋', name: 'JSON Formatter', desc: 'Format and validate JSON', keywords: 'json formatter' },
-                { id: 'loremIpsum', icon: '📄', name: 'Lorem Ipsum', desc: 'Generate placeholder text', keywords: 'lorem ipsum' },
-                { id: 'hashGenerator', icon: '🔒', name: 'Hash Generator', desc: 'Generate MD5, SHA hashes', keywords: 'hash generator, md5' }
-            ]
-        };
-
-        function renderTools() {
-            Object.keys(tools).forEach(category => {
-                const container = document.getElementById(`${category}Tools`);
-                if (container) {
-                    container.innerHTML = tools[category].map(tool => `
-                        <div class="tool-card" onclick="openTool('${tool.id}')" data-keywords="${tool.keywords}">
-                            <div class="tool-icon">${tool.icon}</div>
-                            <h3>${tool.name}</h3>
-                            <p>${tool.desc}</p>
-                        </div>
-                    `).join('');
-                }
-            });
-        }
-
-        function openTool(toolId) {
+        // Tool Modal Functions
+        function openTool(tool) {
             const modal = document.getElementById('toolModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBody = document.getElementById('modalBody');
-            
-            const allTools = [...tools.pdf, ...tools.image, ...tools.video, ...tools.text];
-            const tool = allTools.find(t => t.id === toolId);
-            
-            if (!tool) return;
-            
-            modalTitle.textContent = tool.name;
-            modalBody.innerHTML = getToolHTML(toolId);
-            modal.style.display = 'block';
+            const title = document.getElementById('toolTitle');
+            const content = document.getElementById('toolContent');
+            modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             
-            setTimeout(() => initializeTool(toolId), 100);
+            const tools = {
+                wordCounter: { title: 'Word Counter', content: wordCounterHTML() },
+                caseConverter: { title: 'Case Converter', content: caseConverterHTML() },
+                textReverser: { title: 'Text Reverser', content: textReverserHTML() },
+                duplicateRemover: { title: 'Remove Duplicate Lines', content: duplicateRemoverHTML() },
+                loremGenerator: { title: 'Lorem Ipsum Generator', content: loremGeneratorHTML() },
+                textSorter: { title: 'Text Sorter', content: textSorterHTML() },
+                findReplace: { title: 'Find & Replace', content: findReplaceHTML() },
+                textEncoder: { title: 'Text Encoder/Decoder', content: textEncoderHTML() },
+                imageResizer: { title: 'Image Resizer', content: imageResizerHTML() },
+                imageCompressor: { title: 'Image Compressor', content: imageCompressorHTML() },
+                imageConverter: { title: 'Image Converter', content: imageConverterHTML() },
+                imageCropper: { title: 'Image Cropper', content: imageCropperHTML() },
+                imageRotator: { title: 'Rotate & Flip Image', content: imageRotatorHTML() },
+                imageToBase64: { title: 'Image to Base64', content: imageToBase64HTML() },
+                passwordGenerator: { title: 'Password Generator', content: passwordGeneratorHTML() },
+                qrGenerator: { title: 'QR Code Generator', content: qrGeneratorHTML() },
+                hashGenerator: { title: 'Hash Generator', content: hashGeneratorHTML() },
+                uuidGenerator: { title: 'UUID Generator', content: uuidGeneratorHTML() },
+                colorConverter: { title: 'Color Converter', content: colorConverterHTML() },
+                unitConverter: { title: 'Unit Converter', content: unitConverterHTML() },
+                jsonFormatter: { title: 'JSON Formatter', content: jsonFormatterHTML() },
+                numberConverter: { title: 'Number Converter', content: numberConverterHTML() }
+            };
+            
+            title.textContent = tools[tool].title;
+            content.innerHTML = tools[tool].content;
         }
 
         function closeModal() {
-            const modal = document.getElementById('toolModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.getElementById('toolModal').classList.add('hidden');
+            document.body.style.overflow = '';
         }
 
-        function getToolHTML(toolId) {
-            const commonImageUpload = `
-                <div class="upload-area" id="dropZone">
-                    <h3>🖼️ Drop image here or click</h3>
-                    <input type="file" id="fileInput" accept="image/*">
-                    <button class="btn" onclick="document.getElementById('fileInput').click()">Select Image</button>
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text);
+            const original = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = original, 1500);
+        }
+
+        // Tool HTML Templates
+        function wordCounterHTML() {
+            return `
+                <textarea id="wcInput" class="w-full h-48 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Type or paste your text here..." oninput="countWords()"></textarea>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-indigo-50 p-4 rounded-lg"><span id="wcWords" class="text-2xl font-bold text-indigo-600">0</span><p class="text-sm text-gray-600">Words</p></div>
+                    <div class="bg-purple-50 p-4 rounded-lg"><span id="wcChars" class="text-2xl font-bold text-purple-600">0</span><p class="text-sm text-gray-600">Characters</p></div>
+                    <div class="bg-pink-50 p-4 rounded-lg"><span id="wcSentences" class="text-2xl font-bold text-pink-600">0</span><p class="text-sm text-gray-600">Sentences</p></div>
+                    <div class="bg-blue-50 p-4 rounded-lg"><span id="wcParagraphs" class="text-2xl font-bold text-blue-600">0</span><p class="text-sm text-gray-600">Paragraphs</p></div>
                 </div>
-            `;
-
-            const templates = {
-                mergePDF: `
-                    <div class="upload-area" id="dropZone">
-                        <h3>📁 Drop PDF files here or click</h3>
-                        <input type="file" id="fileInput" accept=".pdf" multiple>
-                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select PDFs</button>
-                    </div>
-                    <div id="fileList"></div>
-                    <button class="btn" id="mergeBtn" style="display:none;" onclick="executeMergePDF()">Merge PDFs</button>
-                    <div id="progressBar" style="display:none;" class="progress-bar"><div class="progress-fill"></div></div>
-                    <div id="result"></div>
-                `,
-                splitPDF: `
-                    <div class="upload-area" id="dropZone">
-                        <h3>📁 Drop PDF here</h3>
-                        <input type="file" id="fileInput" accept=".pdf">
-                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select PDF</button>
-                    </div>
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Split by page ranges (e.g., 1-3, 5, 7-9):
-                            <input type="text" id="pageRanges" placeholder="1-3, 5, 7-9">
-                        </label>
-                    </div>
-                    <button class="btn" id="splitBtn" style="display:none;" onclick="executeSplitPDF()">Split PDF</button>
-                    <div id="result"></div>
-                `,
-                compressImage: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Quality: <span id="qualityValue">80</span>%
-                            <input type="range" id="quality" min="1" max="100" value="80" oninput="document.getElementById('qualityValue').textContent=this.value">
-                        </label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeCompressImage()">Compress</button>
-                    <div id="result"></div>
-                `,
-                resizeImage: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Width: <input type="number" id="width" value="800"></label>
-                        <label>Height: <input type="number" id="height" value="600"></label>
-                        <label><input type="checkbox" id="maintain" checked> Keep aspect ratio</label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeResizeImage()">Resize</button>
-                    <div id="result"></div>
-                `,
-                cropImage: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>X: <input type="number" id="cropX" value="0" min="0"></label>
-                        <label>Y: <input type="number" id="cropY" value="0" min="0"></label>
-                        <label>Width: <input type="number" id="cropWidth" value="400"></label>
-                        <label>Height: <input type="number" id="cropHeight" value="400"></label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeCropImage()">Crop</button>
-                    <div id="result"></div>
-                `,
-                rotateImage: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Angle:
-                            <select id="angle">
-                                <option value="90">90° Clockwise</option>
-                                <option value="180">180°</option>
-                                <option value="270">270°</option>
-                            </select>
-                        </label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeRotateImage()">Rotate</button>
-                    <div id="result"></div>
-                `,
-                jpgToPng: commonImageUpload + `
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeJpgToPng()">Convert to PNG</button>
-                    <div id="result"></div>
-                `,
-                pngToJpg: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Quality: <span id="qualityValue">90</span>%
-                            <input type="range" id="quality" min="1" max="100" value="90" oninput="document.getElementById('qualityValue').textContent=this.value">
-                        </label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executePngToJpg()">Convert to JPG</button>
-                    <div id="result"></div>
-                `,
-                flipImage: commonImageUpload + `
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Direction:
-                            <select id="flipDir">
-                                <option value="horizontal">Horizontal</option>
-                                <option value="vertical">Vertical</option>
-                            </select>
-                        </label>
-                    </div>
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeFlipImage()">Flip</button>
-                    <div id="result"></div>
-                `,
-                grayscaleImage: commonImageUpload + `
-                    <canvas id="preview" style="display:none;"></canvas>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeGrayscale()">Convert to Grayscale</button>
-                    <div id="result"></div>
-                `,
-                trimVideo: `
-                    <div class="upload-area" id="dropZone">
-                        <h3>🎬 Drop video here</h3>
-                        <input type="file" id="fileInput" accept="video/*">
-                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Video</button>
-                    </div>
-                    <video id="videoPreview" controls style="display:none;"></video>
-                    <div class="tool-options" id="options" style="display:none;">
-                        <label>Start time (seconds): <input type="number" id="startTime" value="0" min="0"></label>
-                        <label>End time (seconds): <input type="number" id="endTime" value="10" min="0"></label>
-                    </div>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeTrimVideo()">Trim</button>
-                    <div id="result"></div>
-                `,
-                muteVideo: `
-                    <div class="upload-area" id="dropZone">
-                        <h3>🎬 Drop video here</h3>
-                        <input type="file" id="fileInput" accept="video/*">
-                        <button class="btn" onclick="document.getElementById('fileInput').click()">Select Video</button>
-                    </div>
-                    <video id="videoPreview" controls style="display:none;"></video>
-                    <button class="btn" id="processBtn" style="display:none;" onclick="executeMuteVideo()">Remove Audio</button>
-                    <div id="result"></div>
-                `,
-                wordCounter: `
-                    <textarea id="textInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" placeholder="Type or paste text..."></textarea>
-                    <div id="stats" style="margin-top:1rem;"></div>
-                `,
-                caseConverter: `
-                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter text..."></textarea>
-                    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
-                        <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
-                        <button class="btn" onclick="convertCase('lower')">lowercase</button>
-                        <button class="btn" onclick="convertCase('title')">Title Case</button>
-                        <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
-                    </div>
-                    <div id="result"></div>
-                `,
-                base64Encode: `
-                    <div style="margin-bottom:1rem;">
-                        <label><input type="radio" name="mode" value="encode" checked> Encode</label>
-                        <label><input type="radio" name="mode" value="decode"> Decode</label>
-                    </div>
-                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter text..."></textarea>
-                    <button class="btn" onclick="executeBase64()">Convert</button>
-                    <div id="result" style="margin-top:1rem;"></div>
-                `,
-                urlEncode: `
-                    <div style="margin-bottom:1rem;">
-                        <label><input type="radio" name="mode" value="encode" checked> Encode</label>
-                        <label><input type="radio" name="mode" value="decode"> Decode</label>
-                    </div>
-                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter URL..."></textarea>
-                    <button class="btn" onclick="executeURLEncode()">Convert</button>
-                    <div id="result" style="margin-top:1rem;"></div>
-                `,
-                jsonFormatter: `
-                    <textarea id="jsonInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;font-family:monospace;" placeholder='{"key": "value"}'></textarea>
-                    <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
-                        <button class="btn" onclick="formatJSON()">Format</button>
-                        <button class="btn" onclick="minifyJSON()">Minify</button>
-                        <button class="btn" onclick="validateJSON()">Validate</button>
-                    </div>
-                    <div id="result"></div>
-                `,
-                sortLines: `
-                    <textarea id="textInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter lines to sort..."></textarea>
-                    <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
-                        <button class="btn" onclick="sortLines('asc')">Sort A-Z</button>
-                        <button class="btn" onclick="sortLines('desc')">Sort Z-A</button>
-                    </div>
-                    <div id="result"></div>
-                `,
-                removeDuplicates: `
-                    <textarea id="textInput" style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter lines..."></textarea>
-                    <button class="btn" onclick="executeRemoveDuplicates()">Remove Duplicates</button>
-                    <div id="result" style="margin-top:1rem;"></div>
-                `,
-                loremIpsum: `
-                    <div class="tool-options">
-                        <label>Paragraphs: <input type="number" id="paragraphs" value="3" min="1" max="20"></label>
-                    </div>
-                    <button class="btn" onclick="generateLoremIpsum()">Generate</button>
-                    <div id="result" style="margin-top:1rem;"></div>
-                `,
-                hashGenerator: `
-                    <textarea id="textInput" style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;margin-bottom:1rem;" placeholder="Enter text..."></textarea>
-                    <button class="btn" onclick="generateHash()">Generate Hashes</button>
-                    <div id="result" style="margin-top:1rem;"></div>
-                `
-            };
-            
-            return templates[toolId] || `<div class="file-info"><p>This tool is ready to use. Please select your file to begin.</p></div>`;
+                <div class="mt-4 grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-gray-50 p-3 rounded-lg"><span id="wcNoSpaces" class="font-bold text-gray-700">0</span><p class="text-xs text-gray-500">Characters (no spaces)</p></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span id="wcReadTime" class="font-bold text-gray-700">0 min</span><p class="text-xs text-gray-500">Reading Time</p></div>
+                </div>`;
         }
 
-        function initializeTool(toolId) {
-            const fileInput = document.getElementById('fileInput');
-            const dropZone = document.getElementById('dropZone');
+        function countWords() {
+            const text = document.getElementById('wcInput').value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
+            const paragraphs = text.split(/\n\n+/).filter(p => p.trim()).length;
+            const noSpaces = text.replace(/\s/g, '').length;
+            const readTime = Math.ceil(words / 200);
             
-            if (fileInput && dropZone) {
-                fileInput.addEventListener('change', (e) => handleFileSelect(e, toolId));
-                
-                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                    dropZone.addEventListener(eventName', (e) => { e.preventDefault(); e.stopPropagation(); }, false);
-                });
-                
-                ['dragenter', 'dragover'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, () => dropZone.classList.add('dragover'), false);
-                });
-                
-                ['dragleave', 'drop'].forEach(eventName => {
-                    dropZone.addEventListener(eventName, () => dropZone.classList.remove('dragover'), false);
-                });
-                
-                dropZone.addEventListener('drop', (e) => {
-                    const files = e.dataTransfer.files;
-                    handleFiles(files, toolId);
-                }, false);
-                
-                dropZone.addEventListener('click', () => fileInput.click());
+            document.getElementById('wcWords').textContent = words;
+            document.getElementById('wcChars').textContent = chars;
+            document.getElementById('wcSentences').textContent = sentences;
+            document.getElementById('wcParagraphs').textContent = paragraphs;
+            document.getElementById('wcNoSpaces').textContent = noSpaces;
+            document.getElementById('wcReadTime').textContent = readTime + ' min';
+        }
+
+        function caseConverterHTML() {
+            return `
+                <textarea id="ccInput" class="w-full h-40 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter text to convert..."></textarea>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                    <button onclick="convertCase('upper')" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">UPPERCASE</button>
+                    <button onclick="convertCase('lower')" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">lowercase</button>
+                    <button onclick="convertCase('title')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">Title Case</button>
+                    <button onclick="convertCase('sentence')" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Sentence case</button>
+                </div>
+                <textarea id="ccOutput" class="w-full h-40 p-4 border rounded-lg bg-gray-50" readonly placeholder="Converted text will appear here..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('ccOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
+        }
+
+        function convertCase(type) {
+            const input = document.getElementById('ccInput').value;
+            let output = '';
+            switch(type) {
+                case 'upper': output = input.toUpperCase(); break;
+                case 'lower': output = input.toLowerCase(); break;
+                case 'title': output = input.toLowerCase().replace(/\b\w/g, c => c.toUpperCase()); break;
+                case 'sentence': output = input.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break;
             }
-            
-            if (toolId === 'wordCounter') {
-                document.getElementById('textInput').addEventListener('input', updateWordCount);
-                updateWordCount();
+            document.getElementById('ccOutput').value = output;
+        }
+
+        function textReverserHTML() {
+            return `
+                <textarea id="trInput" class="w-full h-40 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter text to reverse..."></textarea>
+                <div class="flex gap-3 mb-4 flex-wrap">
+                    <button onclick="reverseText('chars')" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Reverse Characters</button>
+                    <button onclick="reverseText('words')" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Reverse Words</button>
+                    <button onclick="reverseText('lines')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">Reverse Lines</button>
+                </div>
+                <textarea id="trOutput" class="w-full h-40 p-4 border rounded-lg bg-gray-50" readonly placeholder="Reversed text..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('trOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
+        }
+
+        function reverseText(type) {
+            const input = document.getElementById('trInput').value;
+            let output = '';
+            switch(type) {
+                case 'chars': output = input.split('').reverse().join(''); break;
+                case 'words': output = input.split(' ').reverse().join(' '); break;
+                case 'lines': output = input.split('\n').reverse().join('\n'); break;
             }
+            document.getElementById('trOutput').value = output;
         }
 
-        function handleFileSelect(e, toolId) {
-            handleFiles(e.target.files, toolId);
+        function duplicateRemoverHTML() {
+            return `
+                <textarea id="drInput" class="w-full h-40 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter lines of text (one per line)..."></textarea>
+                <div class="flex gap-3 mb-4 flex-wrap">
+                    <button onclick="removeDuplicates(false)" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Remove Duplicates</button>
+                    <button onclick="removeDuplicates(true)" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Remove (Case Insensitive)</button>
+                </div>
+                <textarea id="drOutput" class="w-full h-40 p-4 border rounded-lg bg-gray-50" readonly placeholder="Result..."></textarea>
+                <p id="drStats" class="text-sm text-gray-600 mt-2"></p>
+                <button onclick="copyToClipboard(document.getElementById('drOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
         }
 
-        function handleFiles(files, toolId) {
-            if (files.length === 0) return;
-            
-            if (toolId === 'mergePDF') {
-                window.pdfFiles = Array.from(files);
-                displayPDFList();
-            } else if (toolId.includes('Image') || toolId.includes('Png') || toolId.includes('Jpg') || toolId.includes('flip') || toolId.includes('gray')) {
-                loadImage(files[0], toolId);
-            } else if (toolId.includes('Video') || toolId.includes('mute') || toolId.includes('trim')) {
-                loadVideo(files[0], toolId);
-            } else if (toolId === 'splitPDF') {
-                loadPDFForSplit(files[0]);
-            }
+        function removeDuplicates(caseInsensitive) {
+            const input = document.getElementById('drInput').value;
+            const lines = input.split('\n');
+            const seen = new Set();
+            const unique = lines.filter(line => {
+                const key = caseInsensitive ? line.toLowerCase() : line;
+                if (seen.has(key)) return false;
+                seen.add(key);
+                return true;
+            });
+            document.getElementById('drOutput').value = unique.join('\n');
+            document.getElementById('drStats').textContent = `Removed ${lines.length - unique.length} duplicate(s). ${unique.length} unique lines remaining.`;
         }
 
-        function displayPDFList() {
-            const fileList = document.getElementById('fileList');
-            const mergeBtn = document.getElementById('mergeBtn');
-            
-            fileList.innerHTML = '<h3>Files:</h3>' + window.pdfFiles.map((f, i) => `
-                <div class="file-info"><strong>${i + 1}.</strong> ${f.name} (${(f.size / 1024).toFixed(2)} KB)</div>
-            `).join('');
-            
-            mergeBtn.style.display = 'block';
+        function loremGeneratorHTML() {
+            return `
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Number of Paragraphs</label>
+                        <input type="number" id="lgCount" value="3" min="1" max="20" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                        <select id="lgType" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                            <option value="paragraphs">Paragraphs</option>
+                            <option value="sentences">Sentences</option>
+                            <option value="words">Words</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="generateLorem()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition mb-4">Generate</button>
+                <textarea id="lgOutput" class="w-full h-64 p-4 border rounded-lg bg-gray-50" readonly placeholder="Lorem ipsum will appear here..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('lgOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
         }
 
-        async function executeMergePDF() {
-            const result = document.getElementById('result');
-            const progressBar = document.getElementById('progressBar');
-            const progressFill = progressBar.querySelector('.progress-fill');
+        function generateLorem() {
+            const words = ['lorem','ipsum','dolor','sit','amet','consectetur','adipiscing','elit','sed','do','eiusmod','tempor','incididunt','ut','labore','et','dolore','magna','aliqua','enim','ad','minim','veniam','quis','nostrud','exercitation','ullamco','laboris','nisi','aliquip','ex','ea','commodo','consequat','duis','aute','irure','in','reprehenderit','voluptate','velit','esse','cillum','fugiat','nulla','pariatur','excepteur','sint','occaecat','cupidatat','non','proident','sunt','culpa','qui','officia','deserunt','mollit','anim','id','est','laborum'];
+            const count = parseInt(document.getElementById('lgCount').value);
+            const type = document.getElementById('lgType').value;
+            let result = '';
             
-            try {
-                progressBar.style.display = 'block';
-                const mergedPdf = await PDFDocument.create();
-                
-                for (let i = 0; i < window.pdfFiles.length; i++) {
-                    progressFill.style.width = ((i + 1) / window.pdfFiles.length * 80) + '%';
-                    const fileBuffer = await window.pdfFiles[i].arrayBuffer();
-                    const pdf = await PDFDocument.load(fileBuffer);
-                    const pages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
-                    pages.forEach(page => mergedPdf.addPage(page));
+            const randomWords = (n) => Array.from({length: n}, () => words[Math.floor(Math.random() * words.length)]).join(' ');
+            const capitalize = s => s.charAt(0).toUpperCase() + s.slice(1);
+            
+            if (type === 'words') {
+                result = randomWords(count);
+            } else if (type === 'sentences') {
+                for (let i = 0; i < count; i++) {
+                    result += capitalize(randomWords(Math.floor(Math.random() * 10) + 5)) + '. ';
                 }
-                
-                const pdfBytes = await mergedPdf.save();
-                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
-                
-                progressFill.style.width = '100%';
-                result.innerHTML = `<div class="file-info"><h3>✅ Success!</h3><a href="${url}" download="merged.pdf" class="btn">Download PDF</a></div>`;
-            } catch (error) {
-                result.innerHTML = `<div class="file-info" style="color:red;">❌ Error: ${error.message}</div>`;
-            }
-        }
-
-        function loadImage(file, toolId) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = new Image();
-                img.onload = () => {
-                    window.currentImage = img;
-                    showImagePreview(img);
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function showImagePreview(img) {
-            const canvas = document.getElementById('preview');
-            const ctx = canvas.getContext('2d');
-            const options = document.getElementById('options');
-            const btn = document.getElementById('processBtn');
-            
-            canvas.width = Math.min(img.width, 800);
-            canvas.height = (canvas.width / img.width) * img.height;
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            
-            canvas.style.display = 'block';
-            if (options) options.style.display = 'block';
-            if (btn) btn.style.display = 'block';
-        }
-
-        function loadVideo(file, toolId) {
-            const video = document.getElementById('videoPreview');
-            const options = document.getElementById('options');
-            const btn = document.getElementById('processBtn');
-            
-            const url = URL.createObjectURL(file);
-            video.src = url;
-            video.style.display = 'block';
-            if (options) options.style.display = 'block';
-            if (btn) btn.style.display = 'block';
-            
-            window.currentVideoFile = file;
-        }
-
-        async function executeCompressImage() {
-            const canvas = document.getElementById('preview');
-            const quality = document.getElementById('quality').value / 100;
-            const result = document.getElementById('result');
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                result.innerHTML = `<div class="file-info"><h3>✅ Compressed!</h3><p>Size: ${(blob.size / 1024).toFixed(2)} KB</p><a href="${url}" download="compressed.jpg" class="btn">Download</a></div>`;
-            }, 'image/jpeg', quality);
-        }
-
-        async function executeResizeImage() {
-            const width = parseInt(document.getElementById('width').value);
-            const height = parseInt(document.getElementById('height').value);
-            const maintain = document.getElementById('maintain').checked;
-            const result = document.getElementById('result');
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            if (maintain) {
-                canvas.width = width;
-                canvas.height = width / (window.currentImage.width / window.currentImage.height);
             } else {
-                canvas.width = width;
-                canvas.height = height;
+                for (let i = 0; i < count; i++) {
+                    let para = '';
+                    for (let j = 0; j < Math.floor(Math.random() * 4) + 3; j++) {
+                        para += capitalize(randomWords(Math.floor(Math.random() * 10) + 5)) + '. ';
+                    }
+                    result += para.trim() + '\n\n';
+                }
             }
-            
-            ctx.drawImage(window.currentImage, 0, 0, canvas.width, canvas.height);
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                result.innerHTML = `<div class="file-info"><h3>✅ Resized!</h3><a href="${url}" download="resized.png" class="btn">Download</a></div>`;
-            }, 'image/png');
+            document.getElementById('lgOutput').value = result.trim();
         }
 
-        async function executeCropImage() {
-            const x = parseInt(document.getElementById('cropX').value);
-            const y = parseInt(document.getElementById('cropY').value);
-            const width = parseInt(document.getElementById('cropWidth').value);
-            const height = parseInt(document.getElementById('cropHeight').value);
-            const result = document.getElementById('result');
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = width;
-            canvas.height = height;
-            
-            ctx.drawImage(window.currentImage, x, y, width, height, 0, 0, width, height);
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                result.innerHTML = `<div class="file-info"><h3>✅ Cropped!</h3><a href="${url}" download="cropped.png" class="btn">Download</a></div>`;
-            }, 'image/png');
+        function textSorterHTML() {
+            return `
+                <textarea id="tsInput" class="w-full h-40 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter lines to sort..."></textarea>
+                <div class="flex gap-3 mb-4 flex-wrap">
+                    <button onclick="sortText('az')" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">A → Z</button>
+                    <button onclick="sortText('za')" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Z → A</button>
+                    <button onclick="sortText('num')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">Numeric ↑</button>
+                    <button onclick="sortText('numDesc')" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Numeric ↓</button>
+                    <button onclick="sortText('random')" class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition">Shuffle</button>
+                </div>
+                <textarea id="tsOutput" class="w-full h-40 p-4 border rounded-lg bg-gray-50" readonly></textarea>
+                <button onclick="copyToClipboard(document.getElementById('tsOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
         }
 
-        async function executeRotateImage() {
-            const angle = parseInt(document.getElementById('angle').value);
-            const result = document.getElementById('result');
-            
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            if (angle === 90 || angle === 270) {
-                canvas.width = window.currentImage.height;
-                canvas.height = window.currentImage.width;
-            } else {
-                canvas.width = window.currentImage.width;
-                canvas.height = window.currentImage.height;
+        function sortText(type) {
+            const lines = document.getElementById('tsInput').value.split('\n').filter(l => l.trim());
+            let sorted;
+            switch(type) {
+                case 'az': sorted = lines.sort((a, b) => a.localeCompare(b)); break;
+                case 'za': sorted = lines.sort((a, b) => b.localeCompare(a)); break;
+                case 'num': sorted = lines.sort((a, b) => parseFloat(a) - parseFloat(b)); break;
+                case 'numDesc': sorted = lines.sort((a, b) => parseFloat(b) - parseFloat(a)); break;
+                case 'random': sorted = lines.sort(() => Math.random() - 0.5); break;
             }
-            
-            ctx.translate(canvas.width / 2, canvas.height / 2);
-            ctx.rotate(angle * Math.PI / 180);
-            ctx.drawImage(window.currentImage, -window.currentImage.width / 2, -window.currentImage.height / 2);
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                result.innerHTML = `<div class="file-info"><h3>✅ Rotated!</h3><a href="${url}" download="rotated.png" class="btn">Download</a></div>`;
-            }, 'image/png');
+            document.getElementById('tsOutput').value = sorted.join('\n');
         }
 
-        async function executeJpgToPng() {
-            const canvas = document.getElementById('preview');
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:red;">❌ Invalid input</div>`;
-            }
+        function findReplaceHTML() {
+            return `
+                <textarea id="frInput" class="w-full h-32 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter your text..."></textarea>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <input type="text" id="frFind" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Find...">
+                    <input type="text" id="frReplace" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Replace with...">
+                </div>
+                <div class="flex gap-4 mb-4 items-center">
+                    <label class="flex items-center gap-2"><input type="checkbox" id="frCase" class="rounded"> Case sensitive</label>
+                    <button onclick="findReplace()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">Replace All</button>
+                </div>
+                <textarea id="frOutput" class="w-full h-32 p-4 border rounded-lg bg-gray-50" readonly></textarea>
+                <p id="frStats" class="text-sm text-gray-600 mt-2"></p>
+                <button onclick="copyToClipboard(document.getElementById('frOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
         }
 
-        function formatJSON() {
-            const input = document.getElementById('jsonInput').value;
+        function findReplace() {
+            const text = document.getElementById('frInput').value;
+            const find = document.getElementById('frFind').value;
+            const replace = document.getElementById('frReplace').value;
+            const caseSensitive = document.getElementById('frCase').checked;
+            const flags = caseSensitive ? 'g' : 'gi';
+            const regex = new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), flags);
+            const matches = (text.match(regex) || []).length;
+            document.getElementById('frOutput').value = text.replace(regex, replace);
+            document.getElementById('frStats').textContent = `Replaced ${matches} occurrence(s)`;
+        }
+
+        function textEncoderHTML() {
+            return `
+                <textarea id="teInput" class="w-full h-32 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter text to encode/decode..."></textarea>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+                    <button onclick="encodeText('base64e')" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition text-sm">Base64 Encode</button>
+                    <button onclick="encodeText('base64d')" class="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 transition text-sm">Base64 Decode</button>
+                    <button onclick="encodeText('urle')" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition text-sm">URL Encode</button>
+                    <button onclick="encodeText('urld')" class="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition text-sm">URL Decode</button>
+                    <button onclick="encodeText('htmle')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition text-sm">HTML Encode</button>
+                    <button onclick="encodeText('htmld')" class="bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition text-sm">HTML Decode</button>
+                </div>
+                <textarea id="teOutput" class="w-full h-32 p-4 border rounded-lg bg-gray-50" readonly></textarea>
+                <button onclick="copyToClipboard(document.getElementById('teOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
+        }
+
+        function encodeText(type) {
+            const input = document.getElementById('teInput').value;
+            let output = '';
             try {
-                const parsed = JSON.parse(input);
-                const formatted = JSON.stringify(parsed, null, 2);
-                document.getElementById('result').innerHTML = `<textarea style="width:100%;height:300px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;font-family:monospace;" readonly>${formatted}</textarea>`;
-            } catch (e) {
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON</div>`;
+                switch(type) {
+                    case 'base64e': output = btoa(unescape(encodeURIComponent(input))); break;
+                    case 'base64d': output = decodeURIComponent(escape(atob(input))); break;
+                    case 'urle': output = encodeURIComponent(input); break;
+                    case 'urld': output = decodeURIComponent(input); break;
+                    case 'htmle': output = input.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); break;
+                    case 'htmld': output = input.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"'); break;
+                }
+            } catch(e) { output = 'Error: Invalid input for this operation'; }
+            document.getElementById('teOutput').value = output;
+        }
+
+        function imageResizerHTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('irFile').click()">
+                    <input type="file" id="irFile" accept="image/*" class="hidden" onchange="loadImageResize(this)">
+                    <p class="text-gray-600">Click to upload or drag & drop an image</p>
+                </div>
+                <div id="irPreview" class="hidden mb-4">
+                    <img id="irImage" class="max-w-full max-h-64 mx-auto rounded-lg shadow">
+                    <p id="irOriginal" class="text-sm text-gray-600 text-center mt-2"></p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Width (px)</label>
+                    <input type="number" id="irWidth" class="w-full p-3 border rounded-lg" placeholder="Width" onchange="updateAspect('width')"></div>
+                    <div><label class="block text-sm font-medium text-gray-700 mb-2">Height (px)</label>
+                    <input type="number" id="irHeight" class="w-full p-3 border rounded-lg" placeholder="Height" onchange="updateAspect('height')"></div>
+                </div>
+                <label class="flex items-center gap-2 mb-4"><input type="checkbox" id="irAspect" checked class="rounded"> Maintain aspect ratio</label>
+                <button onclick="resizeImage()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">Resize & Download</button>`;
+        }
+
+        let originalImage = null, aspectRatio = 1;
+        function loadImageResize(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.getElementById('irImage');
+                    img.src = e.target.result;
+                    img.onload = () => {
+                        originalImage = img;
+                        aspectRatio = img.naturalWidth / img.naturalHeight;
+                        document.getElementById('irWidth').value = img.naturalWidth;
+                        document.getElementById('irHeight').value = img.naturalHeight;
+                        document.getElementById('irOriginal').textContent = `Original: ${img.naturalWidth} × ${img.naturalHeight}px`;
+                        document.getElementById('irPreview').classList.remove('hidden');
+                    };
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateAspect(changed) {
+            if (!document.getElementById('irAspect').checked) return;
+            const w = document.getElementById('irWidth');
+            const h = document.getElementById('irHeight');
+            if (changed === 'width') h.value = Math.round(w.value / aspectRatio);
+            else w.value = Math.round(h.value * aspectRatio);
+        }
+
+        function resizeImage() {
+            if (!originalImage) return alert('Please upload an image first');
+            const canvas = document.createElement('canvas');
+            canvas.width = parseInt(document.getElementById('irWidth').value);
+            canvas.height = parseInt(document.getElementById('irHeight').value);
+            canvas.getContext('2d').drawImage(originalImage, 0, 0, canvas.width, canvas.height);
+            const link = document.createElement('a');
+            link.download = 'resized-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function imageCompressorHTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('icFile').click()">
+                    <input type="file" id="icFile" accept="image/*" class="hidden" onchange="loadImageCompress(this)">
+                    <p class="text-gray-600">Click to upload an image to compress</p>
+                </div>
+                <div id="icPreview" class="hidden mb-4">
+                    <img id="icImage" class="max-w-full max-h-48 mx-auto rounded-lg shadow">
+                    <p id="icOriginalSize" class="text-sm text-gray-600 text-center mt-2"></p>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Quality: <span id="icQualityVal">80</span>%</label>
+                    <input type="range" id="icQuality" min="10" max="100" value="80" class="w-full" oninput="document.getElementById('icQualityVal').textContent=this.value">
+                </div>
+                <button onclick="compressImage()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">Compress & Download</button>
+                <p id="icResult" class="text-sm text-green-600 mt-2"></p>`;
+        }
+
+        let compressOriginal = null, originalSize = 0;
+        function loadImageCompress(input) {
+            const file = input.files[0];
+            if (file) {
+                originalSize = file.size;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('icImage').src = e.target.result;
+                    compressOriginal = e.target.result;
+                    document.getElementById('icOriginalSize').textContent = `Original: ${(originalSize/1024).toFixed(2)} KB`;
+                    document.getElementById('icPreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function compressImage() {
+            if (!compressOriginal) return alert('Please upload an image first');
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                canvas.getContext('2d').drawImage(img, 0, 0);
+                const quality = document.getElementById('icQuality').value / 100;
+                const compressed = canvas.toDataURL('image/jpeg', quality);
+                const newSize = Math.round((compressed.length * 3) / 4);
+                document.getElementById('icResult').textContent = `Compressed: ${(newSize/1024).toFixed(2)} KB (${Math.round((1-newSize/originalSize)*100)}% smaller)`;
+                const link = document.createElement('a');
+                link.download = 'compressed-image.jpg';
+                link.href = compressed;
+                link.click();
+            };
+            img.src = compressOriginal;
+        }
+
+        function imageConverterHTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('iconvFile').click()">
+                    <input type="file" id="iconvFile" accept="image/*" class="hidden" onchange="loadImageConvert(this)">
+                    <p class="text-gray-600">Click to upload an image</p>
+                </div>
+                <div id="iconvPreview" class="hidden mb-4">
+                    <img id="iconvImage" class="max-w-full max-h-48 mx-auto rounded-lg shadow">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Convert to:</label>
+                    <select id="iconvFormat" class="w-full p-3 border rounded-lg">
+                        <option value="image/png">PNG</option>
+                        <option value="image/jpeg">JPEG</option>
+                        <option value="image/webp">WebP</option>
+                    </select>
+                </div>
+                <button onclick="convertImage()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">Convert & Download</button>`;
+        }
+
+        let convertOriginal = null;
+        function loadImageConvert(input) {
+            if (input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('iconvImage').src = e.target.result;
+                    convertOriginal = e.target.result;
+                    document.getElementById('iconvPreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function convertImage() {
+            if (!convertOriginal) return alert('Please upload an image first');
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                canvas.getContext('2d').drawImage(img, 0, 0);
+                const format = document.getElementById('iconvFormat').value;
+                const ext = format.split('/')[1];
+                const link = document.createElement('a');
+                link.download = `converted.${ext}`;
+                link.href = canvas.toDataURL(format, 0.95);
+                link.click();
+            };
+            img.src = convertOriginal;
+        }
+
+        function imageCropperHTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('cropFile').click()">
+                    <input type="file" id="cropFile" accept="image/*" class="hidden" onchange="loadImageCrop(this)">
+                    <p class="text-gray-600">Click to upload an image</p>
+                </div>
+                <div id="cropPreview" class="hidden mb-4">
+                    <img id="cropImage" class="max-w-full max-h-48 mx-auto rounded-lg shadow">
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                    <div><label class="block text-xs text-gray-600">X</label><input type="number" id="cropX" value="0" class="w-full p-2 border rounded"></div>
+                    <div><label class="block text-xs text-gray-600">Y</label><input type="number" id="cropY" value="0" class="w-full p-2 border rounded"></div>
+                    <div><label class="block text-xs text-gray-600">Width</label><input type="number" id="cropW" value="100" class="w-full p-2 border rounded"></div>
+                    <div><label class="block text-xs text-gray-600">Height</label><input type="number" id="cropH" value="100" class="w-full p-2 border rounded"></div>
+                </div>
+                <button onclick="cropImage()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition">Crop & Download</button>`;
+        }
+
+        let cropOriginal = null;
+        function loadImageCrop(input) {
+            if (input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.getElementById('cropImage');
+                    img.src = e.target.result;
+                    cropOriginal = e.target.result;
+                    img.onload = () => {
+                        document.getElementById('cropW').value = img.naturalWidth;
+                        document.getElementById('cropH').value = img.naturalHeight;
+                    };
+                    document.getElementById('cropPreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function cropImage() {
+            if (!cropOriginal) return alert('Please upload an image first');
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const x = parseInt(document.getElementById('cropX').value);
+                const y = parseInt(document.getElementById('cropY').value);
+                const w = parseInt(document.getElementById('cropW').value);
+                const h = parseInt(document.getElementById('cropH').value);
+                canvas.width = w; canvas.height = h;
+                canvas.getContext('2d').drawImage(img, x, y, w, h, 0, 0, w, h);
+                const link = document.createElement('a');
+                link.download = 'cropped.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+            img.src = cropOriginal;
+        }
+
+        function imageRotatorHTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('rotFile').click()">
+                    <input type="file" id="rotFile" accept="image/*" class="hidden" onchange="loadImageRotate(this)">
+                    <p class="text-gray-600">Click to upload an image</p>
+                </div>
+                <div id="rotPreview" class="hidden mb-4">
+                    <img id="rotImage" class="max-w-full max-h-48 mx-auto rounded-lg shadow">
+                </div>
+                <div class="flex gap-3 mb-4 flex-wrap justify-center">
+                    <button onclick="rotateImage(90)" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">↻ 90°</button>
+                    <button onclick="rotateImage(-90)" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">↺ 90°</button>
+                    <button onclick="rotateImage(180)" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">180°</button>
+                    <button onclick="flipImage('h')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">↔ Flip H</button>
+                    <button onclick="flipImage('v')" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">↕ Flip V</button>
+                </div>
+                <button onclick="downloadRotated()" class="bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Download</button>`;
+        }
+
+        let rotOriginal = null, currentRotation = 0, flipH = false, flipV = false;
+        function loadImageRotate(input) {
+            if (input.files[0]) {
+                currentRotation = 0; flipH = false; flipV = false;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('rotImage').src = e.target.result;
+                    rotOriginal = e.target.result;
+                    document.getElementById('rotPreview').classList.remove('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function rotateImage(deg) {
+            currentRotation = (currentRotation + deg) % 360;
+            applyTransform();
+        }
+
+        function flipImage(dir) {
+            if (dir === 'h') flipH = !flipH;
+            else flipV = !flipV;
+            applyTransform();
+        }
+
+        function applyTransform() {
+            document.getElementById('rotImage').style.transform = `rotate(${currentRotation}deg) scaleX(${flipH ? -1 : 1}) scaleY(${flipV ? -1 : 1})`;
+        }
+
+        function downloadRotated() {
+            if (!rotOriginal) return alert('Please upload an image first');
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                const rad = currentRotation * Math.PI / 180;
+                if (Math.abs(currentRotation) === 90 || Math.abs(currentRotation) === 270) {
+                    canvas.width = img.height; canvas.height = img.width;
+                } else {
+                    canvas.width = img.width; canvas.height = img.height;
+                }
+                ctx.translate(canvas.width/2, canvas.height/2);
+                ctx.rotate(rad);
+                ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+                ctx.drawImage(img, -img.width/2, -img.height/2);
+                const link = document.createElement('a');
+                link.download = 'transformed.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+            img.src = rotOriginal;
+        }
+
+        function imageToBase64HTML() {
+            return `
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-4 cursor-pointer hover:border-indigo-500 transition" onclick="document.getElementById('b64File').click()">
+                    <input type="file" id="b64File" accept="image/*" class="hidden" onchange="loadImageBase64(this)">
+                    <p class="text-gray-600">Click to upload an image</p>
+                </div>
+                <textarea id="b64Output" class="w-full h-48 p-4 border rounded-lg bg-gray-50 text-xs" readonly placeholder="Base64 string will appear here..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('b64Output').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Base64</button>`;
+        }
+
+        function loadImageBase64(input) {
+            if (input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => { document.getElementById('b64Output').value = e.target.result; };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function passwordGeneratorHTML() {
+            return `
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password Length: <span id="pgLenVal">16</span></label>
+                    <input type="range" id="pgLen" min="6" max="64" value="16" class="w-full" oninput="document.getElementById('pgLenVal').textContent=this.value">
+                </div>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <label class="flex items-center gap-2"><input type="checkbox" id="pgUpper" checked class="rounded"> Uppercase (A-Z)</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" id="pgLower" checked class="rounded"> Lowercase (a-z)</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" id="pgNumbers" checked class="rounded"> Numbers (0-9)</label>
+                    <label class="flex items-center gap-2"><input type="checkbox" id="pgSymbols" checked class="rounded"> Symbols (!@#$%)</label>
+                </div>
+                <button onclick="generatePassword()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition mb-4">Generate Password</button>
+                <div class="bg-gray-100 p-4 rounded-lg flex items-center justify-between">
+                    <code id="pgOutput" class="text-lg font-mono break-all">Click generate to create password</code>
+                    <button onclick="copyToClipboard(document.getElementById('pgOutput').textContent, this)" class="ml-4 bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-900 transition text-sm">Copy</button>
+                </div>
+                <div id="pgStrength" class="mt-3 text-sm"></div>`;
+        }
+
+        function generatePassword() {
+            const len = parseInt(document.getElementById('pgLen').value);
+            let chars = '';
+            if (document.getElementById('pgUpper').checked) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (document.getElementById('pgLower').checked) chars += 'abcdefghijklmnopqrstuvwxyz';
+            if (document.getElementById('pgNumbers').checked) chars += '0123456789';
+            if (document.getElementById('pgSymbols').checked) chars += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+            if (!chars) { alert('Select at least one character type'); return; }
+            let pwd = '';
+            for (let i = 0; i < len; i++) pwd += chars[Math.floor(Math.random() * chars.length)];
+            document.getElementById('pgOutput').textContent = pwd;
+            const strength = len >= 16 && document.getElementById('pgSymbols').checked ? 'Strong 💪' : len >= 12 ? 'Good 👍' : 'Weak ⚠️';
+            document.getElementById('pgStrength').innerHTML = `Strength: <span class="font-bold">${strength}</span>`;
+        }
+
+        function qrGeneratorHTML() {
+            return `
+                <input type="text" id="qrInput" class="w-full p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter URL or text to generate QR code...">
+                <button onclick="generateQR()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition mb-4">Generate QR Code</button>
+                <div id="qrOutput" class="flex justify-center p-4 bg-white rounded-lg"></div>
+                <button id="qrDownload" onclick="downloadQR()" class="hidden mt-4 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Download QR Code</button>`;
+        }
+
+        function generateQR() {
+            const text = document.getElementById('qrInput').value;
+            if (!text) return alert('Please enter text or URL');
+            const container = document.getElementById('qrOutput');
+            container.innerHTML = '';
+            const canvas = document.createElement('canvas');
+            canvas.id = 'qrCanvas';
+            container.appendChild(canvas);
+            QRCode.toCanvas(canvas, text, { width: 256, margin: 2 }, (err) => {
+                if (err) console.error(err);
+                document.getElementById('qrDownload').classList.remove('hidden');
+            });
+        }
+
+        function downloadQR() {
+            const canvas = document.getElementById('qrCanvas');
+            const link = document.createElement('a');
+            link.download = 'qrcode.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function hashGeneratorHTML() {
+            return `
+                <textarea id="hashInput" class="w-full h-32 p-4 border rounded-lg mb-4 focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Enter text to hash..."></textarea>
+                <button onclick="generateHashes()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition mb-4">Generate Hashes</button>
+                <div id="hashOutput" class="space-y-3">
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="font-bold text-sm text-gray-600">SHA-256:</span><code id="sha256" class="block text-xs mt-1 break-all">-</code></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="font-bold text-sm text-gray-600">SHA-1:</span><code id="sha1" class="block text-xs mt-1 break-all">-</code></div>
+                    <div class="bg-gray-50 p-3 rounded-lg"><span class="font-bold text-sm text-gray-600">MD5:</span><code id="md5" class="block text-xs mt-1 break-all">-</code></div>
+                </div>`;
+        }
+
+        async function generateHashes() {
+            const text = document.getElementById('hashInput').value;
+            const encoder = new TextEncoder();
+            const data = encoder.encode(text);
+            
+            const sha256 = await crypto.subtle.digest('SHA-256', data);
+            document.getElementById('sha256').textContent = Array.from(new Uint8Array(sha256)).map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            const sha1 = await crypto.subtle.digest('SHA-1', data);
+            document.getElementById('sha1').textContent = Array.from(new Uint8Array(sha1)).map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            // Simple MD5 implementation
+            document.getElementById('md5').textContent = md5(text);
+        }
+
+        function md5(string) {
+            function md5cycle(x, k) {
+                var a = x[0], b = x[1], c = x[2], d = x[3];
+                a = ff(a, b, c, d, k[0], 7, -680876936); d = ff(d, a, b, c, k[1], 12, -389564586);
+                c = ff(c, d, a, b, k[2], 17, 606105819); b = ff(b, c, d, a, k[3], 22, -1044525330);
+                a = ff(a, b, c, d, k[4], 7, -176418897); d = ff(d, a, b, c, k[5], 12, 1200080426);
+                c = ff(c, d, a, b, k[6], 17, -1473231341); b = ff(b, c, d, a, k[7], 22, -45705983);
+                a = ff(a, b, c, d, k[8], 7, 1770035416); d = ff(d, a, b, c, k[9], 12, -1958414417);
+                c = ff(c, d, a, b, k[10], 17, -42063); b = ff(b, c, d, a, k[11], 22, -1990404162);
+                a = ff(a, b, c, d, k[12], 7, 1804603682); d = ff(d, a, b, c, k[13], 12, -40341101);
+                c = ff(c, d, a, b, k[14], 17, -1502002290); b = ff(b, c, d, a, k[15], 22, 1236535329);
+                a = gg(a, b, c, d, k[1], 5, -165796510); d = gg(d, a, b, c, k[6], 9, -1069501632);
+                c = gg(c, d, a, b, k[11], 14, 643717713); b = gg(b, c, d, a, k[0], 20, -373897302);
+                a = gg(a, b, c, d, k[5], 5, -701558691); d = gg(d, a, b, c, k[10], 9, 38016083);
+                c = gg(c, d, a, b, k[15], 14, -660478335); b = gg(b, c, d, a, k[4], 20, -405537848);
+                a = gg(a, b, c, d, k[9], 5, 568446438); d = gg(d, a, b, c, k[14], 9, -1019803690);
+                c = gg(c, d, a, b, k[3], 14, -187363961); b = gg(b, c, d, a, k[8], 20, 1163531501);
+                a = gg(a, b, c, d, k[13], 5, -1444681467); d = gg(d, a, b, c, k[2], 9, -51403784);
+                c = gg(c, d, a, b, k[7], 14, 1735328473); b = gg(b, c, d, a, k[12], 20, -1926607734);
+                a = hh(a, b, c, d, k[5], 4, -378558); d = hh(d, a, b, c, k[8], 11, -2022574463);
+                c = hh(c, d, a, b, k[11], 16, 1839030562); b = hh(b, c, d, a, k[14], 23, -35309556);
+                a = hh(a, b, c, d, k[1], 4, -1530992060); d = hh(d, a, b, c, k[4], 11, 1272893353);
+                c = hh(c, d, a, b, k[7], 16, -155497632); b = hh(b, c, d, a, k[10], 23, -1094730640);
+                a = hh(a, b, c, d, k[13], 4, 681279174); d = hh(d, a, b, c, k[0], 11, -358537222);
+                c = hh(c, d, a, b, k[3], 16, -722521979); b = hh(b, c, d, a, k[6], 23, 76029189);
+                a = hh(a, b, c, d, k[9], 4, -640364487); d = hh(d, a, b, c, k[12], 11, -421815835);
+                c = hh(c, d, a, b, k[15], 16, 530742520); b = hh(b, c, d, a, k[2], 23, -995338651);
+                a = ii(a, b, c, d, k[0], 6, -198630844); d = ii(d, a, b, c, k[7], 10, 1126891415);
+                c = ii(c, d, a, b, k[14], 15, -1416354905); b = ii(b, c, d, a, k[5], 21, -57434055);
+                a = ii(a, b, c, d, k[12], 6, 1700485571); d = ii(d, a, b, c, k[3], 10, -1894986606);
+                c = ii(c, d, a, b, k[10], 15, -1051523); b = ii(b, c, d, a, k[1], 21, -2054922799);
+                a = ii(a, b, c, d, k[8], 6, 1873313359); d = ii(d, a, b, c, k[15], 10, -30611744);
+                c = ii(c, d, a, b, k[6], 15, -1560198380); b = ii(b, c, d, a, k[13], 21, 1309151649);
+                a = ii(a, b, c, d, k[4], 6, -145523070); d = ii(d, a, b, c, k[11], 10, -1120210379);
+                c = ii(c, d, a, b, k[2], 15, 718787259); b = ii(b, c, d, a, k[9], 21, -343485551);
+                x[0] = add32(a, x[0]); x[1] = add32(b, x[1]); x[2] = add32(c, x[2]); x[3] = add32(d, x[3]);
+            }
+            function cmn(q, a, b, x, s, t) { a = add32(add32(a, q), add32(x, t)); return add32((a << s) | (a >>> (32 - s)), b); }
+            function ff(a, b, c, d, x, s, t) { return cmn((b & c) | ((~b) & d), a, b, x, s, t); }
+            function gg(a, b, c, d, x, s, t) { return cmn((b & d) | (c & (~d)), a, b, x, s, t); }
+            function hh(a, b, c, d, x, s, t) { return cmn(b ^ c ^ d, a, b, x, s, t); }
+            function ii(a, b, c, d, x, s, t) { return cmn(c ^ (b | (~d)), a, b, x, s, t); }
+            function md51(s) {
+                var n = s.length, state = [1732584193, -271733879, -1732584194, 271733878], i;
+                for (i = 64; i <= s.length; i += 64) md5cycle(state, md5blk(s.substring(i - 64, i)));
+                s = s.substring(i - 64); var tail = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                for (i = 0; i < s.length; i++) tail[i >> 2] |= s.charCodeAt(i) << ((i % 4) << 3);
+                tail[i >> 2] |= 0x80 << ((i % 4) << 3);
+                if (i > 55) { md5cycle(state, tail); for (i = 0; i < 16; i++) tail[i] = 0; }
+                tail[14] = n * 8; md5cycle(state, tail); return state;
+            }
+            function md5blk(s) { var md5blks = [], i; for (i = 0; i < 64; i += 4) md5blks[i >> 2] = s.charCodeAt(i) + (s.charCodeAt(i + 1) << 8) + (s.charCodeAt(i + 2) << 16) + (s.charCodeAt(i + 3) << 24); return md5blks; }
+            var hex_chr = '0123456789abcdef'.split('');
+            function rhex(n) { var s = '', j = 0; for (; j < 4; j++) s += hex_chr[(n >> (j * 8 + 4)) & 0x0F] + hex_chr[(n >> (j * 8)) & 0x0F]; return s; }
+            function hex(x) { for (var i = 0; i < x.length; i++) x[i] = rhex(x[i]); return x.join(''); }
+            function add32(a, b) { return (a + b) & 0xFFFFFFFF; }
+            return hex(md51(string));
+        }
+
+        function uuidGeneratorHTML() {
+            return `
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Number of UUIDs</label>
+                    <input type="number" id="uuidCount" value="5" min="1" max="100" class="w-full p-3 border rounded-lg">
+                </div>
+                <button onclick="generateUUIDs()" class="bg-indigo-600 text-white py-2 px-6 rounded-lg hover:bg-indigo-700 transition mb-4">Generate UUIDs</button>
+                <textarea id="uuidOutput" class="w-full h-48 p-4 border rounded-lg bg-gray-50 font-mono text-sm" readonly placeholder="UUIDs will appear here..."></textarea>
+                <button onclick="copyToClipboard(document.getElementById('uuidOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy All</button>`;
+        }
+
+        function generateUUIDs() {
+            const count = parseInt(document.getElementById('uuidCount').value);
+            const uuids = [];
+            for (let i = 0; i < count; i++) {
+                uuids.push(crypto.randomUUID());
+            }
+            document.getElementById('uuidOutput').value = uuids.join('\n');
+        }
+
+        function colorConverterHTML() {
+            return `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Pick Color</label>
+                        <input type="color" id="colorPicker" value="#4f46e5" class="w-full h-16 rounded-lg cursor-pointer" onchange="convertColor()">
+                    </div>
+                    <div id="colorPreview" class="rounded-lg" style="background:#4f46e5"></div>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <label class="w-16 font-bold text-sm">HEX:</label>
+                        <input type="text" id="hexValue" class="flex-1 p-3 border rounded-lg font-mono" value="#4f46e5" oninput="convertFromHex()">
+                        <button onclick="copyToClipboard(document.getElementById('hexValue').value, this)" class="bg-gray-200 px-3 py-2 rounded-lg hover:bg-gray-300">Copy</button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-16 font-bold text-sm">RGB:</label>
+                        <input type="text" id="rgbValue" class="flex-1 p-3 border rounded-lg font-mono" value="rgb(79, 70, 229)" readonly>
+                        <button onclick="copyToClipboard(document.getElementById('rgbValue').value, this)" class="bg-gray-200 px-3 py-2 rounded-lg hover:bg-gray-300">Copy</button>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-16 font-bold text-sm">HSL:</label>
+                        <input type="text" id="hslValue" class="flex-1 p-3 border rounded-lg font-mono" value="hsl(243, 75%, 59%)" readonly>
+                        <button onclick="copyToClipboard(document.getElementById('hslValue').value, this)" class="bg-gray-200 px-3 py-2 rounded-lg hover:bg-gray-300">Copy</button>
+                    </div>
+                </div>`;
+        }
+
+        function convertColor() {
+            const hex = document.getElementById('colorPicker').value;
+            document.getElementById('hexValue').value = hex;
+            document.getElementById('colorPreview').style.background = hex;
+            const r = parseInt(hex.slice(1,3), 16), g = parseInt(hex.slice(3,5), 16), b = parseInt(hex.slice(5,7), 16);
+            document.getElementById('rgbValue').value = `rgb(${r}, ${g}, ${b})`;
+            const max = Math.max(r,g,b)/255, min = Math.min(r,g,b)/255;
+            let h, s, l = (max+min)/2;
+            if (max === min) { h = s = 0; }
+            else {
+                const d = max - min;
+                s = l > 0.5 ? d/(2-max-min) : d/(max+min);
+                switch(Math.max(r,g,b)) {
+                    case r: h = ((g-b)/255/d + (g<b?6:0))/6; break;
+                    case g: h = ((b-r)/255/d + 2)/6; break;
+                    case b: h = ((r-g)/255/d + 4)/6; break;
+                }
+            }
+            document.getElementById('hslValue').value = `hsl(${Math.round(h*360)}, ${Math.round(s*100)}%, ${Math.round(l*100)}%)`;
+        }
+
+        function convertFromHex() {
+            const hex = document.getElementById('hexValue').value;
+            if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+                document.getElementById('colorPicker').value = hex;
+                convertColor();
+            }
+        }
+
+        function unitConverterHTML() {
+            return `
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                    <select id="unitCategory" class="w-full p-3 border rounded-lg" onchange="updateUnits()">
+                        <option value="length">Length</option>
+                        <option value="weight">Weight</option>
+                        <option value="temperature">Temperature</option>
+                        <option value="area">Area</option>
+                        <option value="volume">Volume</option>
+                        <option value="speed">Speed</option>
+                        <option value="time">Time</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-5 gap-3 items-center mb-4">
+                    <input type="number" id="unitFrom" class="col-span-2 p-3 border rounded-lg" value="1" oninput="convertUnits()">
+                    <select id="unitFromType" class="p-3 border rounded-lg" onchange="convertUnits()"></select>
+                    <span class="text-center text-xl">=</span>
+                    <div class="bg-gray-100 p-3 rounded-lg font-bold text-center" id="unitResult">-</div>
+                </div>
+                <select id="unitToType" class="w-full p-3 border rounded-lg" onchange="convertUnits()"></select>`;
+        }
+
+        const unitData = {
+            length: { m: 1, km: 1000, cm: 0.01, mm: 0.001, mi: 1609.34, yd: 0.9144, ft: 0.3048, in: 0.0254 },
+            weight: { kg: 1, g: 0.001, mg: 0.000001, lb: 0.453592, oz: 0.0283495, t: 1000 },
+            temperature: { c: 'c', f: 'f', k: 'k' },
+            area: { m2: 1, km2: 1000000, ha: 10000, acre: 4046.86, ft2: 0.092903, in2: 0.00064516 },
+            volume: { l: 1, ml: 0.001, m3: 1000, gal: 3.78541, qt: 0.946353, pt: 0.473176, cup: 0.236588 },
+            speed: { mps: 1, kph: 0.277778, mph: 0.44704, knot: 0.514444, fps: 0.3048 },
+            time: { s: 1, ms: 0.001, min: 60, hr: 3600, day: 86400, week: 604800, month: 2629800, year: 31557600 }
+        };
+
+        function updateUnits() {
+            const cat = document.getElementById('unitCategory').value;
+            const units = Object.keys(unitData[cat]);
+            const opts = units.map(u => `<option value="${u}">${u}</option>`).join('');
+            document.getElementById('unitFromType').innerHTML = opts;
+            document.getElementById('unitToType').innerHTML = opts;
+            if (units.length > 1) document.getElementById('unitToType').selectedIndex = 1;
+            convertUnits();
+        }
+
+        function convertUnits() {
+            const cat = document.getElementById('unitCategory').value;
+            const val = parseFloat(document.getElementById('unitFrom').value);
+            const from = document.getElementById('unitFromType').value;
+            const to = document.getElementById('unitToType').value;
+            let result;
+            if (cat === 'temperature') {
+                let celsius;
+                if (from === 'c') celsius = val;
+                else if (from === 'f') celsius = (val - 32) * 5/9;
+                else celsius = val - 273.15;
+                if (to === 'c') result = celsius;
+                else if (to === 'f') result = celsius * 9/5 + 32;
+                else result = celsius + 273.15;
+            } else {
+                const base = val * unitData[cat][from];
+                result = base / unitData[cat][to];
+            }
+            document.getElementById('unitResult').textContent = isNaN(result) ? '-' : result.toFixed(6).replace(/\.?0+$/, '');
+        }
+
+        function jsonFormatterHTML() {
+            return `
+                <textarea id="jsonInput" class="w-full h-40 p-4 border rounded-lg mb-4 font-mono text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder='{"paste": "your JSON here"}'></textarea>
+                <div class="flex gap-3 mb-4 flex-wrap">
+                    <button onclick="formatJSON(2)" class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition">Format (2 spaces)</button>
+                    <button onclick="formatJSON(4)" class="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition">Format (4 spaces)</button>
+                    <button onclick="minifyJSON()" class="bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition">Minify</button>
+                </div>
+                <textarea id="jsonOutput" class="w-full h-40 p-4 border rounded-lg bg-gray-50 font-mono text-sm" readonly></textarea>
+                <p id="jsonStatus" class="text-sm mt-2"></p>
+                <button onclick="copyToClipboard(document.getElementById('jsonOutput').value, this)" class="mt-3 bg-gray-800 text-white py-2 px-6 rounded-lg hover:bg-gray-900 transition">Copy Result</button>`;
+        }
+
+        function formatJSON(indent) {
+            try {
+                const obj = JSON.parse(document.getElementById('jsonInput').value);
+                document.getElementById('jsonOutput').value = JSON.stringify(obj, null, indent);
+                document.getElementById('jsonStatus').innerHTML = '<span class="text-green-600">✓ Valid JSON</span>';
+            } catch(e) {
+                document.getElementById('jsonStatus').innerHTML = `<span class="text-red-600">✗ ${e.message}</span>`;
             }
         }
 
         function minifyJSON() {
-            const input = document.getElementById('jsonInput').value;
             try {
-                const parsed = JSON.parse(input);
-                const minified = JSON.stringify(parsed);
-                document.getElementById('result').innerHTML = `<textarea style="width:100%;height:100px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;font-family:monospace;" readonly>${minified}</textarea>`;
-            } catch (e) {
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON</div>`;
+                const obj = JSON.parse(document.getElementById('jsonInput').value);
+                document.getElementById('jsonOutput').value = JSON.stringify(obj);
+                document.getElementById('jsonStatus').innerHTML = '<span class="text-green-600">✓ Valid JSON - Minified</span>';
+            } catch(e) {
+                document.getElementById('jsonStatus').innerHTML = `<span class="text-red-600">✗ ${e.message}</span>`;
             }
         }
 
-        function validateJSON() {
-            const input = document.getElementById('jsonInput').value;
-            try {
-                JSON.parse(input);
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:green;">✅ Valid JSON!</div>`;
-            } catch (e) {
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:red;">❌ Invalid JSON: ${e.message}</div>`;
-            }
-        }
-
-        function sortLines(order) {
-            const text = document.getElementById('textInput').value;
-            const lines = text.split('\n');
-            const sorted = order === 'asc' ? lines.sort() : lines.sort().reverse();
-            document.getElementById('result').innerHTML = `<textarea style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${sorted.join('\n')}</textarea>`;
-        }
-
-        function executeRemoveDuplicates() {
-            const text = document.getElementById('textInput').value;
-            const lines = text.split('\n');
-            const unique = [...new Set(lines)];
-            document.getElementById('result').innerHTML = `<div class="file-info"><p>Removed ${lines.length - unique.length} duplicates</p></div><textarea style="width:100%;height:200px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${unique.join('\n')}</textarea>`;
-        }
-
-        function generateLoremIpsum() {
-            const count = parseInt(document.getElementById('paragraphs').value);
-            const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-            const paragraphs = Array(count).fill(lorem).join('\n\n');
-            document.getElementById('result').innerHTML = `<textarea style="width:100%;height:300px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${paragraphs}</textarea>`;
-        }
-
-        async function generateHash() {
-            const text = document.getElementById('textInput').value;
-            const encoder = new TextEncoder();
-            const data = encoder.encode(text);
-            
-            const sha256Hash = await crypto.subtle.digest('SHA-256', data);
-            const sha256Array = Array.from(new Uint8Array(sha256Hash));
-            const sha256 = sha256Array.map(b => b.toString(16).padStart(2, '0')).join('');
-            
-            const sha1Hash = await crypto.subtle.digest('SHA-1', data);
-            const sha1Array = Array.from(new Uint8Array(sha1Hash));
-            const sha1 = sha1Array.map(b => b.toString(16).padStart(2, '0')).join('');
-            
-            document.getElementById('result').innerHTML = `
-                <div class="file-info">
-                    <p><strong>SHA-256:</strong></p>
-                    <textarea style="width:100%;height:60px;padding:0.5rem;border:1px solid #cbd5e0;border-radius:4px;font-family:monospace;font-size:0.85rem;" readonly>${sha256}</textarea>
-                    <p style="margin-top:1rem;"><strong>SHA-1:</strong></p>
-                    <textarea style="width:100%;height:60px;padding:0.5rem;border:1px solid #cbd5e0;border-radius:4px;font-family:monospace;font-size:0.85rem;" readonly>${sha1}</textarea>
+        function numberConverterHTML() {
+            return `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Input Number</label>
+                        <input type="text" id="numInput" class="w-full p-3 border rounded-lg font-mono" placeholder="Enter number..." oninput="convertNumbers()">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Input Base</label>
+                        <select id="numBase" class="w-full p-3 border rounded-lg" onchange="convertNumbers()">
+                            <option value="10">Decimal (10)</option>
+                            <option value="2">Binary (2)</option>
+                            <option value="8">Octal (8)</option>
+                            <option value="16">Hexadecimal (16)</option>
+                        </select>
+                    </div>
                 </div>
-            `;
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <span class="w-24 font-bold text-sm">Decimal:</span>
+                        <code id="numDec" class="flex-1 font-mono">-</code>
+                        <button onclick="copyToClipboard(document.getElementById('numDec').textContent, this)" class="bg-gray-200 px-3 py-1 rounded text-sm">Copy</button>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <span class="w-24 font-bold text-sm">Binary:</span>
+                        <code id="numBin" class="flex-1 font-mono break-all">-</code>
+                        <button onclick="copyToClipboard(document.getElementById('numBin').textContent, this)" class="bg-gray-200 px-3 py-1 rounded text-sm">Copy</button>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <span class="w-24 font-bold text-sm">Octal:</span>
+                        <code id="numOct" class="flex-1 font-mono">-</code>
+                        <button onclick="copyToClipboard(document.getElementById('numOct').textContent, this)" class="bg-gray-200 px-3 py-1 rounded text-sm">Copy</button>
+                    </div>
+                    <div class="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                        <span class="w-24 font-bold text-sm">Hex:</span>
+                        <code id="numHex" class="flex-1 font-mono">-</code>
+                        <button onclick="copyToClipboard(document.getElementById('numHex').textContent, this)" class="bg-gray-200 px-3 py-1 rounded text-sm">Copy</button>
+                    </div>
+                </div>`;
         }
 
-        async function loadPDFForSplit(file) {
-            window.pdfToSplit = file;
-            const arrayBuffer = await file.arrayBuffer();
-            const pdf = await PDFDocument.load(arrayBuffer);
-            window.splitPdfDoc = pdf;
-            
-            const options = document.getElementById('options');
-            const btn = document.getElementById('splitBtn');
-            
-            options.style.display = 'block';
-            btn.style.display = 'block';
-            
-            document.getElementById('pageRanges').placeholder = `1-${pdf.getPageCount()}`;
-        }
-
-        async function executeSplitPDF() {
-            const ranges = document.getElementById('pageRanges').value;
-            const result = document.getElementById('result');
-            
-            try {
-                const rangeArray = ranges.split(',').map(r => r.trim());
-                const newPdf = await PDFDocument.create();
-                
-                for (const range of rangeArray) {
-                    if (range.includes('-')) {
-                        const [start, end] = range.split('-').map(n => parseInt(n) - 1);
-                        for (let i = start; i <= end; i++) {
-                            const [page] = await newPdf.copyPages(window.splitPdfDoc, [i]);
-                            newPdf.addPage(page);
-                        }
-                    } else {
-                        const pageNum = parseInt(range) - 1;
-                        const [page] = await newPdf.copyPages(window.splitPdfDoc, [pageNum]);
-                        newPdf.addPage(page);
-                    }
-                }
-                
-                const pdfBytes = await newPdf.save();
-                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-                const url = URL.createObjectURL(blob);
-                
-                result.innerHTML = `<div class="file-info"><h3>✅ Split Complete!</h3><a href="${url}" download="split.pdf" class="btn">Download PDF</a></div>`;
-            } catch (error) {
-                result.innerHTML = `<div class="file-info" style="color:red;">❌ Error: ${error.message}</div>`;
+        function convertNumbers() {
+            const input = document.getElementById('numInput').value.trim();
+            const base = parseInt(document.getElementById('numBase').value);
+            if (!input) {
+                document.getElementById('numDec').textContent = '-';
+                document.getElementById('numBin').textContent = '-';
+                document.getElementById('numOct').textContent = '-';
+                document.getElementById('numHex').textContent = '-';
+                return;
             }
+            const decimal = parseInt(input, base);
+            if (isNaN(decimal)) {
+                document.getElementById('numDec').textContent = 'Invalid';
+                document.getElementById('numBin').textContent = 'Invalid';
+                document.getElementById('numOct').textContent = 'Invalid';
+                document.getElementById('numHex').textContent = 'Invalid';
+                return;
+            }
+            document.getElementById('numDec').textContent = decimal.toString(10);
+            document.getElementById('numBin').textContent = decimal.toString(2);
+            document.getElementById('numOct').textContent = decimal.toString(8);
+            document.getElementById('numHex').textContent = decimal.toString(16).toUpperCase();
         }
 
-        async function executeTrimVideo() {
-            const video = document.getElementById('videoPreview');
-            const start = parseFloat(document.getElementById('startTime').value);
-            const end = parseFloat(document.getElementById('endTime').value);
-            const result = document.getElementById('result');
-            
-            result.innerHTML = `<div class="file-info"><p>⚠️ Video trimming requires server-side processing. This feature creates a preview only.</p><p>For full video editing, consider using desktop software like FFmpeg or professional video editors.</p></div>`;
-        }
+        // Initialize units on load
+        document.addEventListener('DOMContentLoaded', updateUnits);
 
-        async function executeMuteVideo() {
-            const result = document.getElementById('result');
-            result.innerHTML = `<div class="file-info"><p>⚠️ Video audio removal requires server-side processing. This feature is for preview only.</p><p>For full video editing, consider using desktop software like FFmpeg or professional video editors.</p></div>`;
-        }
-
-        const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const allCards = document.querySelectorAll('.tool-card');
-            let hasResults = false;
-            
-            allCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-                const keywords = card.dataset.keywords.toLowerCase();
-                
-                if (title.includes(query) || desc.includes(query) || keywords.includes(query)) {
-                    card.style.display = 'block';
-                    hasResults = true;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-            
-            document.querySelectorAll('.category').forEach(cat => {
-                const visibleCards = cat.querySelectorAll('.tool-card[style="display: block;"]');
-                cat.style.display = visibleCards.length > 0 ? 'block' : 'none';
-            });
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+        
+        // Close modal on backdrop click
+        document.getElementById('toolModal').addEventListener('click', (e) => {
+            if (e.target.id === 'toolModal') closeModal();
         });
-
-        window.onclick = (e) => {
-            const modal = document.getElementById('toolModal');
-            if (e.target === modal) closeModal();
-        };
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-
-        renderTools();
     </script>
 </body>
-</html> `<div class="file-info"><h3>✅ Converted!</h3><a href="${url}" download="converted.png" class="btn">Download PNG</a></div>`;
-            }, 'image/png');
-        }
-
-        async function executePngToJpg() {
-            const canvas = document.getElementById('preview');
-            const quality = document.getElementById('quality').value / 100;
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                document.getElementById('result').innerHTML = `<div class="file-info"><h3>✅ Converted!</h3><a href="${url}" download="converted.jpg" class="btn">Download JPG</a></div>`;
-            }, 'image/jpeg', quality);
-        }
-
-        async function executeFlipImage() {
-            const direction = document.getElementById('flipDir').value;
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            canvas.width = window.currentImage.width;
-            canvas.height = window.currentImage.height;
-            
-            ctx.save();
-            if (direction === 'horizontal') {
-                ctx.scale(-1, 1);
-                ctx.drawImage(window.currentImage, -canvas.width, 0);
-            } else {
-                ctx.scale(1, -1);
-                ctx.drawImage(window.currentImage, 0, -canvas.height);
-            }
-            ctx.restore();
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                document.getElementById('result').innerHTML = `<div class="file-info"><h3>✅ Flipped!</h3><a href="${url}" download="flipped.png" class="btn">Download</a></div>`;
-            }, 'image/png');
-        }
-
-        async function executeGrayscale() {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = window.currentImage.width;
-            canvas.height = window.currentImage.height;
-            
-            ctx.drawImage(window.currentImage, 0, 0);
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imageData.data;
-            
-            for (let i = 0; i < data.length; i += 4) {
-                const gray = data[i] * 0.299 + data[i + 1] * 0.587 + data[i + 2] * 0.114;
-                data[i] = data[i + 1] = data[i + 2] = gray;
-            }
-            
-            ctx.putImageData(imageData, 0, 0);
-            
-            canvas.toBlob((blob) => {
-                const url = URL.createObjectURL(blob);
-                document.getElementById('result').innerHTML = `<div class="file-info"><h3>✅ Converted!</h3><a href="${url}" download="grayscale.png" class="btn">Download</a></div>`;
-            }, 'image/png');
-        }
-
-        function updateWordCount() {
-            const text = document.getElementById('textInput').value;
-            const stats = document.getElementById('stats');
-            
-            const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
-            const characters = text.length;
-            const charsNoSpaces = text.replace(/\s/g, '').length;
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
-            const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
-            
-            stats.innerHTML = `
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;">
-                    <div class="file-info"><strong>Words:</strong> ${words}</div>
-                    <div class="file-info"><strong>Characters:</strong> ${characters}</div>
-                    <div class="file-info"><strong>No Spaces:</strong> ${charsNoSpaces}</div>
-                    <div class="file-info"><strong>Sentences:</strong> ${sentences}</div>
-                    <div class="file-info"><strong>Paragraphs:</strong> ${paragraphs}</div>
-                    <div class="file-info"><strong>Reading:</strong> ${Math.ceil(words / 200)} min</div>
-                </div>
-            `;
-        }
-
-        function convertCase(type) {
-            const input = document.getElementById('textInput');
-            let text = input.value;
-            let converted = '';
-            
-            switch(type) {
-                case 'upper': converted = text.toUpperCase(); break;
-                case 'lower': converted = text.toLowerCase(); break;
-                case 'title': converted = text.replace(/\w\S*/g, t => t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()); break;
-                case 'sentence': converted = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break;
-            }
-            
-            document.getElementById('result').innerHTML = `<textarea style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${converted}</textarea>`;
-        }
-
-        function executeBase64() {
-            const input = document.getElementById('textInput').value;
-            const mode = document.querySelector('input[name="mode"]:checked').value;
-            
-            try {
-                const output = mode === 'encode' ? btoa(input) : atob(input);
-                document.getElementById('result').innerHTML = `<textarea style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${output}</textarea>`;
-            } catch (e) {
-                document.getElementById('result').innerHTML = `<div class="file-info" style="color:red;">❌ Invalid input</div>`;
-            }
-        }
-
-        function executeURLEncode() {
-            const input = document.getElementById('textInput').value;
-            const mode = document.querySelector('input[name="mode"]:checked').value;
-            
-            try {
-                const output = mode === 'encode' ? encodeURIComponent(input) : decodeURIComponent(input);
-                document.getElementById('result').innerHTML = `<textarea style="width:100%;height:150px;padding:1rem;border:1px solid #cbd5e0;border-radius:8px;" readonly>${output}</textarea>`;
-            } catch (e) {
-                document.getElementById('result').innerHTML =
+</html>
